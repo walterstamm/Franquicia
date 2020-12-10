@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Gestion_Franquicias" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Gestion_Franquicias" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Gestion_Franquicias" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="InterfazGrafica/ui.cpp" />
+		<Unit filename="InterfazGrafica/ui.h" />
+		<Unit filename="Medio_Pago/Medio_Pago.cpp" />
+		<Unit filename="Medio_Pago/Medio_Pago.h" />
+		<Unit filename="Menu_Pedidos.cpp" />
+		<Unit filename="Menu_Pedidos.h" />
+		<Unit filename="Menu_Principal.cpp" />
+		<Unit filename="Menu_Principal.h" />
+		<Unit filename="Menu_Producto/Menu_Producto.cpp" />
+		<Unit filename="Menu_Producto/Menu_Producto.h" />
+		<Unit filename="Validaciones/SINO.cpp" />
+		<Unit filename="Validaciones/SINO.h" />
+		<Unit filename="clases/Comprobantes.cpp" />
+		<Unit filename="clases/Comprobantes.h" />
+		<Unit filename="clases/Descuento.cpp" />
+		<Unit filename="clases/Descuento.h" />
+		<Unit filename="clases/Detalle_Pedidos.cpp" />
+		<Unit filename="clases/Detalle_Pedidos.h" />
+		<Unit filename="clases/Factura.cpp" />
+		<Unit filename="clases/Factura.h" />
+		<Unit filename="clases/Fecha.cpp" />
+		<Unit filename="clases/Fecha.h" />
+		<Unit filename="clases/Lotes_Productos.h" />
+		<Unit filename="clases/Medios_Pago.cpp" />
+		<Unit filename="clases/Medios_Pago.h" />
+		<Unit filename="clases/Pedido.cpp" />
+		<Unit filename="clases/Pedido.h" />
+		<Unit filename="clases/Producto.cpp" />
+		<Unit filename="clases/Producto.h" />
+		<Unit filename="clases/Remitos.cpp" />
+		<Unit filename="clases/Remitos.h" />
+		<Unit filename="clases/Ventas.cpp" />
+		<Unit filename="clases/Ventas.h" />
+		<Unit filename="clases/proveedores.cpp" />
+		<Unit filename="clases/proveedores.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="menus/MenuDescuento.cpp" />
+		<Unit filename="menus/MenuDescuento.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
