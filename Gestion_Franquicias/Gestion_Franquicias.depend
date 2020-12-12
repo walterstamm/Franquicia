@@ -937,7 +937,11 @@
 	"Producto.h"
 	"Comprobantes.h"
 
+<<<<<<< HEAD
 1605225117 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\comprobantes.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -947,6 +951,7 @@
 	"Comprobantes.h"
 	"Factura.h"
 
+<<<<<<< HEAD
 1605025936 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
@@ -959,6 +964,20 @@
 1603935166 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\ui.h
 
 1604624688 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\descuento.cpp
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.h
+	"Fecha.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.h
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.h
+	"Fecha.h"
+	"ui.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\ui.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\descuento.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -966,6 +985,7 @@
 	"Descuento.h"
 	"../Validaciones/SINO.h"
 
+<<<<<<< HEAD
 1604624688 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\descuento.h
 	"Fecha.h"
 
@@ -1139,6 +1159,20 @@
 	"SINO.h"
 
 1607728613 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\descuento.h
+	"Fecha.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\validaciones\sino.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\detalle_pedidos.cpp
+	<iostream>
+	"Detalle_Pedidos.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\detalle_pedidos.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -1152,6 +1186,7 @@
 	"Producto.h"
 	"Comprobantes.h"
 
+<<<<<<< HEAD
 1605225117 source:c:\users\hugo\documents\github\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
@@ -1193,11 +1228,24 @@
 1603935166 c:\users\hugo\documents\github\gestion_franquicias\clases\detalle_pedidos.h
 
 1605833986 source:c:\users\hugo\documents\github\gestion_franquicias\clases\fecha.cpp
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\ventas.h
+	"Factura.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\producto.h
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
+<<<<<<< HEAD
 1604635257 source:c:\users\hugo\documents\github\gestion_franquicias\clases\medios_pago.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -1205,17 +1253,27 @@
 	"Medios_Pago.h"
 	"../Validaciones/SINO.h"
 
+<<<<<<< HEAD
 1604635257 c:\users\hugo\documents\github\gestion_franquicias\clases\medios_pago.h
 
 1605842373 source:c:\users\hugo\documents\github\gestion_franquicias\clases\pedido.cpp
 	<iostream>
 	<cstring>
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.h
+
+1607731734 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.cpp
+	<iostream>
+	<cstring>
+	<vector>
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<cstdlib>
 	<cstdio>
 	"Pedido.h"
 	"Fecha.h"
 	"Producto.h"
 
+<<<<<<< HEAD
 1605842373 c:\users\hugo\documents\github\gestion_franquicias\clases\pedido.h
 	"Fecha.h"
 
@@ -1223,6 +1281,12 @@
 	"Fecha.h"
 
 1607293454 source:c:\users\hugo\documents\github\gestion_franquicias\clases\producto.cpp
+=======
+1607644375 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.h
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\producto.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<iomanip>
 	<cstdlib>
@@ -1231,28 +1295,61 @@
 	"Producto.h"
 	"../Validaciones/SINO.h"
 
+<<<<<<< HEAD
 1605842373 source:c:\users\hugo\documents\github\gestion_franquicias\clases\proveedores.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\proveedores.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdlib>
 	<cstring>
 	<cstdio>
 	"../Menu_Pedidos.h"
 
+<<<<<<< HEAD
 1605842373 c:\users\hugo\documents\github\gestion_franquicias\menu_pedidos.h
 	"clases/proveedores.h"
 
 1605842373 c:\users\hugo\documents\github\gestion_franquicias\clases\proveedores.h
 
 1603935166 source:c:\users\hugo\documents\github\gestion_franquicias\clases\remitos.cpp
+=======
+1607729277 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.h
+	<vector>
+	<string>
+	"clases/proveedores.h"
+	"clases/Pedido.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\proveedores.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\remitos.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdio>
 	<cstdlib>
 	"Remitos.h"
 
+<<<<<<< HEAD
 1603935166 c:\users\hugo\documents\github\gestion_franquicias\clases\remitos.h
 	"Fecha.h"
 
 1603935166 source:c:\users\hugo\documents\github\gestion_franquicias\interfazgrafica\ui.cpp
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\remitos.h
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\ventas.cpp
+	<iostream>
+	<string.h>
+	<cstdio>
+	<iomanip>
+	<cstdlib>
+	<vector>
+	"Ventas.h"
+	"Producto.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\interfazgrafica\ui.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -1260,9 +1357,15 @@
 	"ui.h"
 	"rlutil.h"
 
+<<<<<<< HEAD
 1603935166 c:\users\hugo\documents\github\gestion_franquicias\interfazgrafica\ui.h
 
 1603935166 c:\users\hugo\documents\github\gestion_franquicias\interfazgrafica\rlutil.h
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\interfazgrafica\ui.h
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\interfazgrafica\rlutil.h
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<string>
 	<cstdio>
@@ -1276,7 +1379,11 @@
 	<sys/types.h>
 	<sys/time.h>
 
+<<<<<<< HEAD
 1607121338 source:c:\users\hugo\documents\github\gestion_franquicias\main.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\main.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -1286,25 +1393,45 @@
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
 
+<<<<<<< HEAD
 1604674245 c:\users\hugo\documents\github\gestion_franquicias\menu_principal.h
 
 1604625709 source:c:\users\hugo\documents\github\gestion_franquicias\medio_pago\medio_pago.cpp
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdio>
 	"Medio_Pago.h"
 	"../clases/Medios_Pago.h"
 
+<<<<<<< HEAD
 1604624688 c:\users\hugo\documents\github\gestion_franquicias\medio_pago\medio_pago.h
 
 1605842373 source:c:\users\hugo\documents\github\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.h
+
+1607731763 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<vector>
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	"Menu_Pedidos.h"
 	"clases/Pedido.h"
 	"clases/Producto.h"
 
+<<<<<<< HEAD
 1605658667 source:c:\users\hugo\documents\github\gestion_franquicias\menu_principal.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdlib>
 	<clocale>
@@ -1315,11 +1442,19 @@
 	"menus/MenuDescuento.h"
 	"Clases/Comprobantes.h"
 
+<<<<<<< HEAD
 1605231108 c:\users\hugo\documents\github\gestion_franquicias\menu_producto\menu_producto.h
 
 1604017600 c:\users\hugo\documents\github\gestion_franquicias\menus\menudescuento.h
 
 1605868126 source:c:\users\hugo\documents\github\gestion_franquicias\menu_producto\menu_producto.cpp
+=======
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.h
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menus\menudescuento.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdio>
 	<iomanip>
@@ -1329,17 +1464,26 @@
 	"../Validaciones/SINO.h"
 	"../clases/Descuento.h"
 
+<<<<<<< HEAD
 1604028534 source:c:\users\hugo\documents\github\gestion_franquicias\menus\menudescuento.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menus\menudescuento.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<cstdio>
 	"MenuDescuento.h"
 	"../clases/Descuento.h"
 
+<<<<<<< HEAD
 1604624688 source:c:\users\hugo\documents\github\gestion_franquicias\validaciones\sino.cpp
+=======
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\validaciones\sino.cpp
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 	<iostream>
 	<string.h>
 	"SINO.h"
 
+<<<<<<< HEAD
 1607744911 source:c:\users\hugo\documents\github\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
@@ -1367,3 +1511,5 @@
 	"Ventas.h"
 	"Producto.h"
 
+=======
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581

@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="clases\Remitos.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="290" topLine="12" />
@@ -30,13 +31,57 @@
 	<File name="clases\Descuento.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="237" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="clases\Medios_Pago.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="clases\Factura.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="39" topLine="126" />
+			<Cursor1 position="8822" topLine="123" />
+		</Cursor>
+		<Folding>
+			<Collapse line="14" />
+			<Collapse line="32" />
+			<Collapse line="39" />
+			<Collapse line="85" />
+			<Collapse line="125" />
+			<Collapse line="133" />
+		</Folding>
+	</File>
+	<File name="clases\Descuento.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="237" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="clases\Fecha.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="449" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clases\Pedido.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4987" topLine="165" />
+		</Cursor>
+	</File>
+	<File name="clases\Remitos.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="290" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="clases\Producto.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3564" topLine="82" />
+		</Cursor>
+	</File>
+	<File name="clases\Producto.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="482" topLine="9" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
+		</Cursor>
+	</File>
+	<File name="clases\Ventas.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1070" topLine="13" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="clases\Producto.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="482" topLine="13" />
@@ -50,12 +95,28 @@
 	<File name="clases\Ventas.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1811" topLine="64" />
+=======
+	<File name="clases\Fecha.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1869" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="clases\Medios_Pago.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39" topLine="126" />
+		</Cursor>
+	</File>
+	<File name="Medio_Pago\Medio_Pago.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="37" topLine="89" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 		</Cursor>
 		<Folding>
 			<Collapse line="89" />
 			<Collapse line="115" />
 		</Folding>
 	</File>
+<<<<<<< HEAD
 	<File name="clases\Pedido.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
@@ -74,6 +135,26 @@
 	<File name="clases\Fecha.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="449" topLine="0" />
+=======
+	<File name="InterfazGrafica\ui.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="717" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="clases\Comprobantes.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="610" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="clases\Pedido.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="167" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clases\Lotes_Productos.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 		</Cursor>
 	</File>
 	<File name="clases\Detalle_Pedidos.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -81,6 +162,7 @@
 			<Cursor1 position="205" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="261" topLine="18" />
@@ -89,6 +171,16 @@
 	<File name="clases\Factura.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="36808" topLine="372" />
+=======
+	<File name="clases\Factura.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1171" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="clases\proveedores.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3751" topLine="129" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 		</Cursor>
 		<Folding>
 			<Collapse line="14" />
@@ -108,6 +200,7 @@
 			<Collapse line="733" />
 		</Folding>
 	</File>
+<<<<<<< HEAD
 	<File name="clases\Lotes_Productos.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
@@ -116,6 +209,21 @@
 	<File name="clases\Comprobantes.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="5347" topLine="86" />
+=======
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="211" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clases\Descuento.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2664" topLine="78" />
+		</Cursor>
+	</File>
+	<File name="clases\Detalle_Pedidos.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="432" topLine="0" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 		</Cursor>
 	</File>
 	<File name="clases\Comprobantes.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
@@ -123,6 +231,7 @@
 			<Cursor1 position="610" topLine="12" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="clases\proveedores.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="222" topLine="0" />
@@ -141,13 +250,34 @@
 	<File name="clases\Producto.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3564" topLine="82" />
-		</Cursor>
-	</File>
-	<File name="clases\proveedores.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="clases\Ventas.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="249" topLine="1" />
+			<Cursor1 position="3799" topLine="98" />
 		</Cursor>
 	</File>
+	<File name="menus\MenuDescuento.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="189" topLine="98" />
+		</Cursor>
+	</File>
+	<File name="Menu_Principal.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="193" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clases\Comprobantes.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5347" topLine="86" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
+		</Cursor>
+	</File>
+	<File name="Menu_Pedidos.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6214" topLine="213" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
 	<File name="clases\Fecha.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1590" topLine="9" />
@@ -156,10 +286,16 @@
 	<File name="clases\Pedido.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="932" topLine="0" />
+=======
+	<File name="Menu_Pedidos.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="531" topLine="0" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 		</Cursor>
 	</File>
-	<File name="clases\Factura.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="Menu_Principal.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="2066" topLine="36" />
 		</Cursor>
 	</File>
@@ -171,6 +307,19 @@
 	<File name="Menu_Principal.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="193" topLine="0" />
+=======
+			<Cursor1 position="1532" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="clases\proveedores.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="249" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="Menu_Producto\Menu_Producto.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1452" topLine="27" />
+>>>>>>> 68d6396e34f5784307e9b0be97e168be4f402581
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

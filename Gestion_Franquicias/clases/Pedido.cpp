@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <cstring>
+#include <vector>
 #include <cstdlib>
 #include <cstdio>
 #include "Pedido.h"
@@ -8,7 +9,8 @@ using namespace std;
 #include "Producto.h"
 
 Pedido::Pedido(){
-    Estado=true;
+    Estado=false;
+    EstadoFinal=false;
 }
 Pedido::~Pedido(){
 }
@@ -119,6 +121,13 @@ int Pedido::getCantidad(){
 bool Pedido::getEstado(){
     return Estado;
 }
+bool Pedido::getEstadoFinal(){
+    return EstadoFinal;
+}
+
+void Pedido::setEstadoFinal(bool state){
+    EstadoFinal=state;
+}
 void Pedido::setID(int _ID){
     ID=_ID;
 }
@@ -139,4 +148,46 @@ int Pedido::NumeroPedido(){
     fclose(p);
     return NumPedido;
 
+}
+
+bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
+    Pedido aux;
+    int i=0,Anterior,bandera=0;
+    vector<Pedido> VecPedidos;
+    FILE *p=fopen("archivos/Pedidos.dat","rb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+    while(fread(&aux,sizeof(Pedido),1,p)){
+
+        VecPedidos.push_back(aux);
+    }
+    fclose(p);
+    if(VecPedidos.size()==0){
+        return false;
+    }
+
+    for(i=0;i<VecPedidos.size();i++){
+        if(VecPedidos[i].getEstado()==0){
+            if(VecPedidos[i].getEstadoFinal()==0){
+                if(bandera==0||Anterior!=VecPedidos[i].ID){
+                    cout<<endl<<"-----------------------------------------------------";
+                    cout<<endl<<"Numero de Pedido: "<<VecPedidos[i].ID;
+                    cout<<endl<<"Codigo de Producto: "<<VecPedidos[i].Codigo_Producto;
+                    cout<<endl<<"Cantidad: "<<VecPedidos[i].Cantidad<<endl;
+                    bandera=1;
+                    Anterior=VecPedidos[i].ID;
+                }else{
+                    cout<<endl<<endl<<"Codigo de Producto: "<<VecPedidos[i].Codigo_Producto;
+                    cout<<endl<<"Cantidad: "<<VecPedidos[i].Cantidad<<endl<<endl;
+                }
+            }
+        }
+    }
+    if(bandera==0){
+        cout<<"NO HAY PEDIDOS PENDIENTES";
+    }
+    return true;
 }
