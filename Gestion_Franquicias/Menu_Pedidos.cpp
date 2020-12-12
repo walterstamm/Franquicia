@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstdlib>
 #include<cstdio>
+#include <vector>
 #include "Menu_Pedidos.h"
 #include "clases/Pedido.h"
 #include "clases/Producto.h"
@@ -14,7 +15,7 @@ void Menu_Pedidos(){
         cout<<endl<<"---------------------------";
         cout<<endl<<"1) Carga de Provedores";
         cout<<endl<<"2) Generar Pedidos";
-        cout<<endl<<"3) Pedidos pendientes de Recepcion";
+        cout<<endl<<"3) Confirmar/Dar de baja pedidos realizados";
         cout<<endl<<"4) Modificar Provedores(dar baja a proveedor)";
         cout<<endl<<"5) Lista de Proveedores";
         cout<<endl<<"0) SALIR";
@@ -30,7 +31,7 @@ void Menu_Pedidos(){
             GeneraPedido();
         break;
         case 3:
-
+            ConfirmarPedido();
         break;
         case 4:
             DarBajaProveedor();
@@ -146,11 +147,6 @@ void DarBajaProveedor(){
     cin>>respuesta;
     if(respuesta=='s'||respuesta=='S'){
         cin>>Telefono;
-        /*while(Telefono<1000000000){ ///validando telefono que no sea menor a 10 0000 0000
-            cout<<endl<<"telefono incorrecta, reingrese el telefono"<<endl<<endl;
-            cout<<">> Ingrese el telefono: ";
-            cin>>Telefono;
-        }*/
         reg.setTelefono(Telefono);
     }
 
@@ -208,7 +204,80 @@ void GeneraPedido(){
     Pedido reg;
     reg.Cargar_Pedido();
 
-    reg.Mostrar_Pedido();
-    system("pause");
-
 }
+
+
+void ConfirmarPedido(){
+    int numPedido,accion;
+    Pedido reg;
+    if(reg.Mostrar_Pedidos_sinConfirmacion()==0){
+       return;
+    }
+    cout<<"========================================================";
+    cout<<endl<<endl<<"Ingrese el Numero de pedido: ";
+    cin>>numPedido;
+
+    cout<<endl<<"1. DAR DE BAJA";
+    cout<<endl<<"2.CONFIRMAR RECEPCION DE PEDIDO"<<endl;
+    cin>>accion;
+    switch(accion){
+        case 1:
+            if (BajaPedido(numPedido)){
+                cout<<endl<<"Baja exitosa";
+                system("pause");
+                return;
+            }
+            cout<<endl<<"No se puedo concretar la baja";
+            return;
+            break;
+
+        case 2:
+            break;
+
+        default:
+            cout<<"Opcion Incorrecta";
+            return;
+    }
+    system("cls");
+}
+
+
+bool BajaPedido(int numPedido){
+    Pedido aux;
+    vector<Pedido> VecPedidos;
+    int i;
+
+    FILE *p=fopen("archivos/Pedidos.dat","rb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+
+    while(fread(&aux,sizeof(Pedido),1,p)){
+        VecPedidos.push_back(aux);
+
+    }
+    fclose(p);
+
+    for(i=0;i<VecPedidos.size();i++){
+        if(VecPedidos[i].getID()==numPedido){
+            VecPedidos[i].setEstado(false);
+            VecPedidos[i].setEstadoFinal(true);
+        }
+    }
+
+    FILE *v=fopen("archivos/Pedidos.dat","wb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+    for(i=0;i<VecPedidos.size();i++){
+        fwrite(&VecPedidos[i],sizeof(Pedido),1,v);
+    }
+
+    fclose(v);
+    return true;
+}
+

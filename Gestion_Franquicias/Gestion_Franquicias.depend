@@ -937,3 +937,223 @@
 	"Producto.h"
 	"Comprobantes.h"
 
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<stdio.h>
+	<cstring>
+	<iomanip>
+	"Comprobantes.h"
+	"Factura.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.h
+	"Fecha.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.h
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.h
+	"Fecha.h"
+	"ui.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\ui.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\descuento.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"Descuento.h"
+	"../Validaciones/SINO.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\descuento.h
+	"Fecha.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\validaciones\sino.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\detalle_pedidos.cpp
+	<iostream>
+	"Detalle_Pedidos.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\detalle_pedidos.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.cpp
+	<vector>
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<stdio.h>
+	<cstring>
+	<iomanip>
+	"Factura.h"
+	"Fecha.h"
+	"Ventas.h"
+	"Producto.h"
+	"Comprobantes.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\ventas.h
+	"Factura.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\producto.h
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.cpp
+	<iostream>
+	<ctime>
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	"Medios_Pago.h"
+	"../Validaciones/SINO.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.h
+
+1607731734 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.cpp
+	<iostream>
+	<cstring>
+	<vector>
+	<cstdlib>
+	<cstdio>
+	"Pedido.h"
+	"Fecha.h"
+	"Producto.h"
+
+1607644375 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.h
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\producto.cpp
+	<iostream>
+	<iomanip>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	"Producto.h"
+	"../Validaciones/SINO.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\proveedores.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	<cstdio>
+	"../Menu_Pedidos.h"
+
+1607729277 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.h
+	<vector>
+	<string>
+	"clases/proveedores.h"
+	"clases/Pedido.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\proveedores.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\remitos.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	"Remitos.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\remitos.h
+	"Fecha.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\ventas.cpp
+	<iostream>
+	<string.h>
+	<cstdio>
+	<iomanip>
+	<cstdlib>
+	<vector>
+	"Ventas.h"
+	"Producto.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\interfazgrafica\ui.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"ui.h"
+	"rlutil.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\interfazgrafica\ui.h
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\interfazgrafica\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\main.cpp
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<clocale>
+	<iostream>
+	"InterfazGrafica/ui.h"
+	"Menu_Principal.h"
+	"Menu_Pedidos.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.cpp
+	<iostream>
+	<cstdio>
+	"Medio_Pago.h"
+	"../clases/Medios_Pago.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.h
+
+1607731763 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<vector>
+	"Menu_Pedidos.h"
+	"clases/Pedido.h"
+	"clases/Producto.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.cpp
+	<iostream>
+	<cstdlib>
+	<clocale>
+	"Menu_Principal.h"
+	"InterfazGrafica/ui.h"
+	"Menu_Producto/Menu_Producto.h"
+	"Medio_Pago/Medio_Pago.h"
+	"menus/MenuDescuento.h"
+	"Clases/Comprobantes.h"
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.h
+
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menus\menudescuento.h
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.cpp
+	<iostream>
+	<cstdio>
+	<iomanip>
+	<cstdlib>
+	"Menu_Producto.h"
+	"../clases/Producto.h"
+	"../Validaciones/SINO.h"
+	"../clases/Descuento.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menus\menudescuento.cpp
+	<iostream>
+	<cstdio>
+	"MenuDescuento.h"
+	"../clases/Descuento.h"
+
+1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\validaciones\sino.cpp
+	<iostream>
+	<string.h>
+	"SINO.h"
+

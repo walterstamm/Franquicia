@@ -2,14 +2,12 @@
 #define PEDIDO_H_INCLUDED
 #include "Fecha.h"
 class Pedido{
-
-    private:
+private:
         int ID;
         int Codigo_Producto;
         int Cantidad;
         Fecha Fecha_Generado;
-        Fecha Vencimiento;
-        bool Estado;
+        bool Estado,EstadoFinal;
     public:
         Pedido();///Constructor
         ~Pedido();///Destructor
@@ -26,8 +24,11 @@ class Pedido{
         int getCodigo_Producto();
         int getCantidad();
         bool getEstado();
-        int NumeroPedido();
+        bool getEstadoFinal();
+        void setEstadoFinal(bool);
+        int NumeroPedido();///retrona el ultimo numero de pedido cargado
         bool GuardaPedido();
+        bool Mostrar_Pedidos_sinConfirmacion();///muestra los pedidos que aun no fueron dados de baja o confirmados
 };
 
 #endif // PEDIDO_H_INCLUDED
