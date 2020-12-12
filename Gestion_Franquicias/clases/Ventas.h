@@ -31,17 +31,10 @@ class Ventas{
         int Leo_Ventas();
         int BuscarPosicion(int);
         void MostrarVenta();
-        void GuardaVentas(Ventas);
+        void GuardaVentas();
 };
 
 Ventas Preventa(int, int, int);
-
-    /**cout<<Nueva.getNro_Factura()<<endl;
-    cout<<Nueva.getFecha().getDia()<<"/"<<Nueva.getFecha().getMes()<<"/"<<Nueva.getFecha().getAnio()<<endl;
-    cout<<Nueva.getNroCliente()<<endl;
-    cout<<Nueva.getNros_Factura()<<endl;
-    cout<<Nueva.getTotal_Pagar()<<endl;*/
-
-
+void Encab();
 
 #endif // VENTAS_H_INCLUDED

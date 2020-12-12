@@ -113,20 +113,15 @@ Ventas Preventa( int CodProducto, int NroFactura, int CantProducto){
     return ven;
 }
 
-void Ventas::GuardaVentas(Ventas vent){
-    /**cout<<"Nro_Fact:  "<<vent.getNro_Fact()<<endl;
-    cout<<"Cod_Prod:  "<<vent.getCod_Producto()<<endl;
-    cout<<"Descripc:  "<<vent.getDescripcion()<<endl;
-    cout<<"Cant_Pro:  "<<vent.getCant_Producto()<<endl;
-    cout<<"Precio  :  "<<vent.getPrecio()<<endl;
-    cout<<"Importe :  "<<vent.getImporte()<<endl;
-    system("pause");*/
-    FILE *V = fopen("archivos/Ventas.dat", "ab");
-    if(V == NULL) {
+void Ventas::GuardaVentas(){
+    FILE *Ven = fopen("archivos/Ventas.dat", "ab");
+    if(Ven == NULL) {
         cout<<"ERROR = Ventas.dat";
-        system("pause");
         return;}
-    if(fwrite(this, sizeof*this, 1, V)){
-        cout<<"Ventas = se grabo. ";
+    int caso = fwrite(this, sizeof(Ventas), 1, Ven);
+    if(caso == 0){
+        cout<<"NO SE GRABO"<<endl;
+    } else{
+        if(caso == 1){ }
     }
 }

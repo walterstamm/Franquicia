@@ -18,36 +18,37 @@ class Factura{
                 Total_Pagar=0;
                 Estado = true;}
         ~Factura(){}
-        void setFactura(int);
-        void setNroFact(int Nro){Nro_Fact = Nro;}
+        void setNroFact(int Nueva_Fact){Nro_Fact = Nueva_Fact;} ///Le asigna el nuevo numero de factura = la ultima del archivo +1
         void setEstado(bool Est){Estado = Est; }
         void setTotal_Pagar(float Suma){Total_Pagar = Suma;}
-        float setImporte();
+        float setImporte(float);
         void setNro_Cliente(int clien){ Nro_Cliente = clien;}
         void setFecha_Factura(Fecha dia){ Fecha_Factura = dia;}
 
-        void getFactura(){  cout<<"Nro_Fact:    "<<Nro_Fact<<endl;
-                            cout<<"Nro_Cliente: "<<Nro_Cliente<<endl;
-                            cout<<"Total_Pagar: "<<Total_Pagar<<endl;
-                            cout<<"Estado:      "<<Estado<<endl;}
+        void getFactura(Factura){
+                cout<<"Nro_Fact:    "<<Nro_Fact<<endl;
+                cout<<"Fecha: "<<getFecha().getDia()<<"/"<<getFecha().getMes()<<"/"<<getFecha().getAnio()<<endl;
+                cout<<"Nro_Cliente: "<<Nro_Cliente<<endl;
+                cout<<"Total_Pagar: "<<Total_Pagar<<endl;
+                cout<<"Estado:      "<<Estado<<endl;}
 
-        int getNro_Factura(){return Nro_Fact;} ///trae la ultima y suma 1
-        int getNros_Factura(){return Nro_Fact;}
+        int getNros_Factura(){return Nro_Fact;} ///Devuelve el nro de factura que tiene el objeto
         Fecha getFecha(){ return Fecha_Factura;}
         int getNroCliente(){return Nro_Cliente;}
         float getTotal_Pagar(){return Total_Pagar;}
         bool getEstado(){return Estado;}
-        int Leo_Ultima_Factura();
-        bool Guardo();
+        bool GuardoFactura();
         void Muestro_Guardado();
         int BuscarPosicionFactura(int);
+        void MostrarFactura();
 };
 
+int Leo_Ultima_Factura();
 Factura GeneroNuevaFactura();
 void Mostrar_ResumenVenta();
 void Mostrar_TodaVenta();
 void Mostrar_Facturas_Eliminadas();
-void SumarVentas(int);
+float SumarVentas(int);
 void Menu_Reportes();
 void Mostrar_Rotulo_Factura();
 void Mostrar_Comprobante();
@@ -56,7 +57,7 @@ void Ventas_Fecha();
 void Ventas_Mes();
 void Descuento_Stock(int);
 void Detalle_Ventas();
-
+void Encab_Fac(int);
 
 
 #endif // FACTURA_H_INCLUDED
