@@ -35,6 +35,6 @@ class Ventas{
 };
 
 Ventas Preventa(int, int, int);
-void Encab();
+void Encab_Venta();
 
 #endif // VENTAS_H_INCLUDED

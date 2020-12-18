@@ -6,9 +6,9 @@ class Lotes_Prod{
     private:
         int LId;
         int LCodProd;
-        int Cantidad:
-        Fecha Fe_Vto;
-        bool Estado;
+        int LCantidad;
+        Fecha LFe_Vto;
+        bool LEstado;
     ///HAY QUE TENER EN CUENTA SI EL PEDIDO INGRESO
     ///SI INGRESO SE TOMA EN CUENTA PARA SUMAR LA CNATIDAD DE PRODUCTO
     ///SI NO INGRESO EL PEDIDO Y SE ELIMINO POR MOTIVOS RXTAORDINARIOS EL ESTADO 0 Y TAMPOCO SE CARGA
@@ -16,35 +16,32 @@ class Lotes_Prod{
     public:
         Lotes_Prod(){   ///     CONSTRUCTOR
                     LId=0;
-                    LCodPord=0;
-                    Fecha().Cargar_Fecha_Vencimiento();
-                    Estado=false;}
-        ~Lotes_Prod();  ///     DESTRUCTOR
+                    LCodProd=0;
+                    LCantidad=0;
+                    LEstado=false;}
+        ~Lotes_Prod(){};  ///     DESTRUCTOR
         ///     SET
-        void setLid(int Id){ LId= Id;};
-        void setLCodProd(int CodProd){ LCodProd = CodProd;};
-        void setCantidad(int Cant){ Cantidad = Cant; };
-        Fecha setFe_Vto(Fecha){Fecha().Cargar_Fecha(); };
-        void setEstado_true(){ Estado = true;};
-        void setEstado_false(){ Estado = false;};
+        void setLid(int Id){ LId= Id;}
+        void setLCodProd(int CodProd){ LCodProd = CodProd;}
+        void setLCantidad(int Cant){ LCantidad = Cant;}
+        void setFe_Vto(Fecha fe){LFe_Vto = fe;}
+        void setLEstado_true(){ LEstado = true;}
+        void setLEstado_false(){ LEstado = false;}
         ///     GET
-        int getLid(){ return LId;};
-        int getLCodProd(){ return LCodProd;};
-        int getCantidad(){ return Cantidad; };
-        Fecha getFe_Vto(){};
-        bool setEstado(){ return Estado;};
+        int getLId(){ return LId;}
+        int getLCodProd(){ return LCodProd;}
+        int getLCantidad(){ return LCantidad;}
+        Fecha getLFe_Vto(){return LFe_Vto;}
+        bool getLEstado(){ return LEstado;}
+
+        void Cargar_Lotes_Prod();
+        void MuestroLote();
+        bool Grabar_Lotes_Prod();
+        bool Leer_Lotes_Prod(int);
+        int NuevoID();///TRAE EL NUEVO LID PARA CARGAR UN NUEVO LOTE.
 };
 
-
-
-
-
-
-
-
-
-
-
+void MenuLotes();
 
 
 

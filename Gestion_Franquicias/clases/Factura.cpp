@@ -161,11 +161,12 @@ void MENU_FACTURACION(){
                             cout<<"\n  CodProducto: "; cin>>CodProducto;
                             while(CodProducto == 0){
                                 Prod.Mostrar();
-                                cout<<"\n>>>CodProducto: ";          cin>>CodProducto;
+                                cout<<"\n>>>CodProducto: ";
+                                cin>>CodProducto;
                             }
                             ///     CARGO CANTIDAD DEL PRODUCTO
-                            cout<<"Ingrese Cantidad de Producto: ";  cin>>CantProducto;
-
+                            cout<<"Ingrese Cantidad de Producto: ";
+                            cin>>CantProducto;
                             Registros = V_venta.size();
                             if(Registros>0){
                                 for(unsigned int i=0; i<V_venta.size(); i++){
@@ -183,9 +184,9 @@ void MENU_FACTURACION(){
                             system("cls");
                             cout<<endl<<endl;
                             Mostrar_Comprobante();
-                            Encab_Fac(Factura().getNros_Factura());
+                            Encab_Fac(-1);
                             Factura().MostrarFactura();
-                            Encab();
+                            Encab_Venta();
                             for(unsigned  int i=0; i<V_venta.size(); i++){
                                 V_venta.at(i).MostrarVenta();
                             }
@@ -213,9 +214,11 @@ void MENU_FACTURACION(){
                             int Regi=0;
                             float Suma = 0;
                             for(unsigned int i=0; i<V_venta.size(); i++){
-                                V_venta.at(i).GuardaVentas();   ///     GUARDO EN EL ARCHIVO VENTAS OJO ANTES DE GUARDAR
-                                Regi++;
-                                Suma += V_venta.at(i).getImporte();
+                                if(V_venta.at(i).getImporte()!=0){
+                                    V_venta.at(i).GuardaVentas();   ///     GUARDO EN EL ARCHIVO VENTAS OJO ANTES DE GUARDAR
+                                    Regi++;
+                                    Suma += V_venta.at(i).getImporte();
+                                }
                             }
                             cout<<"PRODUCTOS DIFERENTES = "<<Regi<<endl;
                             cout<<"SUMA DE IMPORTES     = "<<Suma<<endl;
@@ -333,7 +336,7 @@ Factura GeneroNuevaFactura(){
     }
 }
 
-void Encab(){
+void Encab_Venta(){
     ///     Muestro las ventas de la facturael resumen de ventas
     cout<<"==============================================================================="<<endl;
     cout << left;
@@ -342,9 +345,18 @@ void Encab(){
     cout<<"==============================================================================="<<endl;
 }
 
-void Encab_Fac(int Nro){
+void Encab_Fac(int Nro=0){ /// 0, -1 o Nro.
     cout<<"==============================================================================="<<endl;
-    cout<<"         DETALLE DE LA FACTURA NRO: "<<Nro<<endl;
+
+    if(Nro == 0){
+        cout<<"       DETALLE DE LAS FACTURAS EMITIDAS Y ELIMINADAS: "<<endl;
+    }else{
+        if(Nro == -1){
+            cout<<"       DETALLE DE LA FACTURA:"<<endl;
+        } else{
+            cout<<"       DETALLE DE FACTURA NRO: "<<Nro<<endl;
+        }
+    }
     cout<<"==============================================================================="<<endl;
     cout << right;
     cout << setw(4) << "NROF";
@@ -383,14 +395,13 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
         cout<<"NO HAY ARCHIVO PARA LEER"<<endl;
         system("pause");
         return;}
-            Encab();
             FILE *V = fopen("archivos/Ventas.dat", "rb");
             if(V == NULL) {
                 cout<<"No se pudo abrir Ventas.dat";
                 return;
             }
+            Encab_Venta();
             while(fread(&ven, sizeof(Ventas), 1, V) ){
-                ///cout<<"NroF: "<<NroF<<"  ven.getNro_Fact():  "<<ven.getNro_Fact()<<endl;
                 if(NroF == ven.getNro_Fact()){
                     ven.MostrarVenta();
                 }
@@ -410,14 +421,7 @@ void Mostrar_TodaVenta(){ ///de la Factura Actual
             cout<<"No se pudo abrir Ventas.dat ";
             return;
         }
-        cout<<"==============================================================================="<<endl;
-        cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
-        cout<<"==============================================================================="<<endl;
-        cout << left;
-        cout << setw(6) << "NROF";
-        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(11) << " Cantidad" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
-        cout<<"==============================================================================="<<endl;
-
+        Encab_Venta();///muestra el encabezado de Ventas..
         while (fread(&Aux, sizeof(Ventas), 1, Veo)){
                 cout << right;
                 cout << setw(3);
@@ -470,37 +474,12 @@ void Mostrar_Rotulo_Factura(){
         cout<<"No se pudo abrir Facturas.dat"<<endl;
         return;
     }
-    cout<<"==============================================================================="<<endl;
-    cout<<"         DETALLE DE LA FACTURA NRO: "<<Nro<<endl;
-    cout<<"==============================================================================="<<endl;
-    cout << right;
-    cout << setw(4) << "NROF";
-    cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
-    cout<<"==============================================================================="<<endl;
+    Encab_Fac(-1);
 
     fseek(Fa, -1*sizeof(Factura), SEEK_END);
     fread(&Rotulo, sizeof(Factura), 1 ,Fa );
         if(Nro == Rotulo.getNros_Factura()){
             Rotulo.MostrarFactura();
-
-            /**cout << right;
-            cout << setw(3);
-            cout << Rotulo.getNros_Factura();
-            cout << setw(3);
-            cout << Rotulo.getFecha().getDia();
-            cout << "/";
-            cout << setw(2);
-            cout << Rotulo.getFecha().getMes();
-            cout << "/";
-            cout << setw(4);
-            cout << Rotulo.getFecha().getAnio();
-            cout << setw(9);
-            cout << Rotulo.getNroCliente();
-            cout << setw(12);
-            cout << Rotulo.getTotal_Pagar();
-            cout << setw(8);
-            cout << Rotulo.getEstado();
-            cout << endl;*/
         }
     fclose(Fa);
 }
@@ -513,13 +492,7 @@ void Mostrar_Facturas_Eliminadas(){
         cout<<"No se pudo abrir Facturas.dat"<<endl;
         return;
     }
-    cout<<"==============================================================================="<<endl;
-    cout<<"\n       RESUMEN DE NROS FACTURAS EMITIDAS Y ELIMINADAS: "<<endl;
-    cout<<"==============================================================================="<<endl;
-    cout << right;
-    cout << setw(4) << "NROF";
-    cout << setw(12) << "DD/MM/AAAA "<<left << setw(10) << " Cliente" << right << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
-    cout<<"==============================================================================="<<endl;
+    Encab_Fac();
 
     while( fread(&Elim, sizeof(Factura), 1 ,Fa )  ){
         if(Elim.getEstado() == false){

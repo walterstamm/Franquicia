@@ -40,6 +40,7 @@ int main(){
             MENU_FACTURACION();
         break;
         case 4:
+            Lotes();
         break;
         case 5:
             Menu_Medio_Pago();

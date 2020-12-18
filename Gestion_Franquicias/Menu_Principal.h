@@ -6,5 +6,6 @@ void Menu_Medio_Pago();
 void MENU_FACTURACION();
 void Menu_Descuento();
 void Menu_Encabezado();
+void Lotes();
 
 #endif // MENU_PRINCIPAL_H_INCLUDED
