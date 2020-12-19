@@ -36,9 +36,11 @@ class Lotes_Prod{
 
         void Cargar_Lotes_Prod();
         void MuestroLote();
-        bool Grabar_Lotes_Prod();
+        bool Grabar_Lotes_Prod(int);
         bool Leer_Lotes_Prod(int);
+        ///bool Leer_Lotes_Prod();
         int NuevoID();///TRAE EL NUEVO LID PARA CARGAR UN NUEVO LOTE.
+        void ModificarLote(int);
 };
 
 void MenuLotes();
