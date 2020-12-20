@@ -12,7 +12,8 @@ private:
         Pedido();///Constructor
         ~Pedido();///Destructor
 
-        void setFecha();///establece la fecha
+        void setFecha(Fecha f);///establece la fecha
+        Fecha getFecha();///retorna la fecha del pedido
 
         bool Cargar_Pedido();///carga todos los valores del pedido
         void Mostrar_Pedido();///muestra el pedido

@@ -232,6 +232,13 @@ void ConfirmarPedido(){
             break;
 
         case 2:
+            if(PedidoRecibido(numPedido)){
+                cout<<endl<<"Pedido Confirmado";
+                system("pause");
+                return;
+            }
+            cout<<endl<<"ERROR";
+            return;
             break;
 
         default:
@@ -281,3 +288,7 @@ bool BajaPedido(int numPedido){
     return true;
 }
 
+bool PedidoRecibido(int numPedido){
+
+
+}

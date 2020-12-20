@@ -19,6 +19,7 @@ bool Pedido::Cargar_Pedido(){
     char respuesta;
     int CodigoProd,NumPedido;
     Producto prod;
+    Fecha_Generado.setFechaHoy();
     ID=NumeroPedido()+1;
     NumPedido=ID;
     cout<<endl<<"Pedido Numero "<<ID<<endl;
@@ -105,6 +106,12 @@ void Pedido::Mostrar_Pedido(){
 void Pedido::setCodigo_Producto(int _Codigo_Producto){
     Codigo_Producto=_Codigo_Producto;
 }
+void Pedido::setFecha(Fecha f){
+Fecha_Generado=f;
+}
+Fecha Pedido::getFecha(){
+return Fecha_Generado;
+}
 void Pedido::setCantidad(int _Cantidad){
     Cantidad=_Cantidad;
 }
@@ -174,6 +181,7 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
             if(VecPedidos[i].getEstadoFinal()==0){
                 if(bandera==0||Anterior!=VecPedidos[i].ID){
                     cout<<endl<<"-----------------------------------------------------";
+                    VecPedidos[i].Fecha_Generado.Mostrar_Fecha();
                     cout<<endl<<"Numero de Pedido: "<<VecPedidos[i].ID;
                     cout<<endl<<"Codigo de Producto: "<<VecPedidos[i].Codigo_Producto;
                     cout<<endl<<"Cantidad: "<<VecPedidos[i].Cantidad<<endl;
