@@ -2,6 +2,7 @@
 #include<cstdlib>
 #include<cstdio>
 #include<cstring>
+#include <iomanip> ///PARA TRABAJAR CON SETW
 
 using namespace std;
 #include "Lotes_Productos.h"
@@ -21,33 +22,32 @@ void MenuLotes(){
         cout<<"05 MODIFICAR UN REGISTRO DE UN LOTE ESPECIFICO         "<<endl;
         cout<<"00 SALIR                                               "<<endl;
         cout<<"====================================================== "<<endl;
-        cout<<" Opcion                                                "<<endl;
+        cout<<" Opcion:  "<<endl;
         cin>>Opcion;
-
-
         switch(Opcion){
-        case 1:
-            lot.Leer_Lotes_Prod(-1);
+        case 1:{
+            Encab_Lote();
+            lot.Leer_Lotes_Prod(-1);}
         break;
-        case 2:
+        case 2:{
             int CodProd;
             cout<<"Ingrese el Código del Producto: "; cin>>CodProd;
+            Encab_Lote();
             lot.Leer_Lotes_Prod(CodProd);
-            system("pause");
+            system("pause");}
         break;
-        case 3:
-
+        case 3:{
+            Encab_Lote();
+            lot.Leer_Lotes_Prod(-2);}
         break;
-        case 4:
+        case 4:{
             lot.Cargar_Lotes_Prod();
+            lot.Grabar_Lotes_Prod(-1);}
         break;
-        case 5:
-        {
+        case 5:{
             int Lote;
             cout<<"INGRESE LOTE A MODIFICAR: "; cin>>Lote;
-            lot.ModificarLote(Lote);
-
-        }
+            lot.ModificarLote(Lote);}
         break;
         case 0:
             return;
@@ -61,16 +61,24 @@ void MenuLotes(){
 }
 
 void Lotes(){
+
     MenuLotes();
 }
 
 int Lotes_Prod::NuevoID(){
     FILE *N= fopen("archivos/Lotes.dat", "rb");
-    if(N == NULL) cout<<"error lote.dat"; return 1;
-    fseek(N, (-1) * sizeof * this, SEEK_END);
-    fread(this, sizeof *this, 1, N);
+    int Nuevo;
+    if(N == NULL) {
+        cout<<"error lote.dat";
+        system("pause");
+        return 1;
+    }
+    fseek(N, -1 * sizeof(*this), SEEK_END);
+    while(fread(this, sizeof *this, 1, N)){
+        Nuevo = getLId()+1;
+    }
     fclose(N);
-    return LId;
+    return Nuevo;
 }
 
 void Lotes_Prod::ModificarLote(int Lote){
@@ -85,6 +93,7 @@ void Lotes_Prod::ModificarLote(int Lote){
             while(true){
                 int op;
                 system("cls");
+                Encab_Lote();
                 MuestroLote();
                 cout<<"==================================================="<<endl<<endl;
 
@@ -136,9 +145,9 @@ void Lotes_Prod::ModificarLote(int Lote){
         }
     }
     if(Encontro >0){
-        if(bool grabo = Grabar_Lotes_Prod(posic)){
-            cout<<">>>>Se modifico correctamente<<<<"<<endl;
-
+        if(Grabar_Lotes_Prod(posic)){
+            cout<<">>>>Se modificó correctamente<<<<"<<endl;
+            system("pause");
         }
     }else{
         cout<<"NO ESXISTE LOTE DE PRODUCTO";
@@ -146,18 +155,37 @@ void Lotes_Prod::ModificarLote(int Lote){
     }
 }
 
+void Encab_Lote(){
+
+    cout <<"==================================================="<<endl;
+    cout << left;
+    cout << "========MUESTRA DE LOTE=============================="<<endl;
+    cout << setw(5)<<" LId  "<<setw(9)<<"Cod_Prod"<<setw(5)<<"Cant  "<<setw(14)<<" Fecha     "<<setw(8)<<"Estado"<<setw(9)<<"Id Pedido"<<endl;
+    cout << "====================================================="<<endl;
+}
+
 void Lotes_Prod::MuestroLote(){   ///     CONSTRUCTOR
-    cout<<"==================================================="<<endl;
-    cout<<"Lote LId  "<<LId<<endl;
-    cout<<"Lote Cod: "<<LCodProd<<endl;
-    cout<<"Lote Lcant: "<<LCantidad<<endl;
-    cout<<"Fecha Vto: "<<getLFe_Vto().getDia()<<"/"<<getLFe_Vto().getMes()<<"/"<<getLFe_Vto().getAnio()<<endl;
-    cout<<"Lote Estado: "<<LEstado<<endl;
+    cout << right;
+    cout << setw(4)<<LId;
+    cout << setw(7)<<LCodProd;
+    cout << setw(8)<<LCantidad;
+    cout << setw(5);
+    cout << getLFe_Vto().getDia();
+    cout << "/";
+    cout << setw(2);
+    cout << getLFe_Vto().getMes();
+    cout << "/";
+    cout << setw(4);
+    cout << getLFe_Vto().getAnio();
+    cout << setw(7)<<LEstado;
+    cout << setw(7)<<LPedidoId<<endl;
 
 }
 
 void Lotes_Prod::Cargar_Lotes_Prod(){
-    cout<<"Lote_ID: "; NuevoID();
+    cout<<"Lote_ID: ";
+    setLid(NuevoID());
+    cout<<getLId()<<endl;
     cout<<"Lote CodProducto: "; cin>>LCodProd;
     cout<<"Lote Cantidad: "; cin>>LCantidad;
     cout<<"Fecha Vto: ";
@@ -168,19 +196,20 @@ void Lotes_Prod::Cargar_Lotes_Prod(){
 
 bool Lotes_Prod::Grabar_Lotes_Prod(int pos){
     bool grabo;
-    FILE *L= fopen("archivos/Lotes.dat", "ab");
-    if(L==NULL){ return false;}
     if(pos==-1){
+        FILE *L= fopen("archivos/Lotes.dat", "ab");
+        if(L==NULL){ return false;}
         bool grabo = fwrite(this, sizeof *this, 1, L);
         fclose(L);
         return grabo;
     }else{
+        FILE *L= fopen("archivos/Lotes.dat", "rb+");
+        if(L==NULL){ return false;}
         fseek(L, pos * sizeof *this, SEEK_SET);
         bool grabo = fwrite(this, sizeof *this, 1, L);
         fclose(L);
         return grabo;
     }
-    fclose(L);
     return grabo;
 }
 

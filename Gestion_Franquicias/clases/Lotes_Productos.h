@@ -9,6 +9,7 @@ class Lotes_Prod{
         int LCantidad;
         Fecha LFe_Vto;
         bool LEstado;
+        int LPedidoId;
     ///HAY QUE TENER EN CUENTA SI EL PEDIDO INGRESO
     ///SI INGRESO SE TOMA EN CUENTA PARA SUMAR LA CNATIDAD DE PRODUCTO
     ///SI NO INGRESO EL PEDIDO Y SE ELIMINO POR MOTIVOS RXTAORDINARIOS EL ESTADO 0 Y TAMPOCO SE CARGA
@@ -18,7 +19,8 @@ class Lotes_Prod{
                     LId=0;
                     LCodProd=0;
                     LCantidad=0;
-                    LEstado=false;}
+                    LEstado=false;
+                    LPedidoId=0;}
         ~Lotes_Prod(){};  ///     DESTRUCTOR
         ///     SET
         void setLid(int Id){ LId= Id;}
@@ -27,12 +29,14 @@ class Lotes_Prod{
         void setFe_Vto(Fecha fe){LFe_Vto = fe;}
         void setLEstado_true(){ LEstado = true;}
         void setLEstado_false(){ LEstado = false;}
+        void setLpedidoId(int Id_pedido){LPedidoId = Id_pedido;}
         ///     GET
         int getLId(){ return LId;}
         int getLCodProd(){ return LCodProd;}
         int getLCantidad(){ return LCantidad;}
         Fecha getLFe_Vto(){return LFe_Vto;}
         bool getLEstado(){ return LEstado;}
+        int getLPedido(){return LPedidoId;}
 
         void Cargar_Lotes_Prod();
         void MuestroLote();
@@ -41,9 +45,10 @@ class Lotes_Prod{
         ///bool Leer_Lotes_Prod();
         int NuevoID();///TRAE EL NUEVO LID PARA CARGAR UN NUEVO LOTE.
         void ModificarLote(int);
+        void Suma_Cantidad(int Suma){ LCantidad += Suma;}
 };
 
-void MenuLotes();
+void Encab_Lote();
 
 
 

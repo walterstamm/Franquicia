@@ -2,3 +2,7 @@
 *.exe
 *.depend
 *.layout
+*.depend
+*.layout
+*.o
+*.exe
