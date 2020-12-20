@@ -30,57 +30,43 @@ int Factura::BuscarPosicionFactura(int Nro){
     return pos = -1; ///retorna -1 si no encontro.
 }
 
-void Factura::setFactura(int Cliente){
-    Nro_Fact = Leo_Ultima_Factura()+1;
-    Nro_Cliente = Cliente;
-    Total_Pagar=0;///FUNCION PARA SUMAR LA VENTA FALTA
-    Fecha_Factura.setFechaHoy();
-}
-
-int Factura::Leo_Ultima_Factura(){
+int Leo_Ultima_Factura(){
+    Factura fa;
     FILE *Fact=fopen("archivos/Facturas.dat", "rb");
     if(Fact == NULL){cout<<"No se abrio el Archivo Facturas.dat";
-    return 0;}
+    return -2;}
     ///Vuelve 1 posición para leer el registro grabado
     fseek(Fact,-1*sizeof(Factura), SEEK_END); ///tiene un warning osea futuro error
-    fread(this, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
+    fread(&fa, sizeof(Factura), 1, Fact);///Muestro lo grabado recien
     fclose(Fact);
-    return Nro_Fact;
+    return fa.getNros_Factura();
 }
 
-void SumarVentas(int NroFat){ ///9-12-2020
-    Ventas  V_Pago;
-    Factura F_Pago;
+float SumarVentas(int Nro_Nueva_Factura){
+    cout<<"FUNCION SUMAR VENTAS"<<endl;
+    cout<<"Nro_Nueva_Factura:  "<<Nro_Nueva_Factura<<endl;
+    system("pause");
+    Ventas V_Pago;
     float Suma = 0;
-    FILE *F = fopen("archivos/Facturas.dat", "rb+");///     ABRO ARCHIVO FACTURAS
-    if(F == NULL){
-        cout << "No se pudo abrir Facturas.dat ";
-        return;
-    }
+
     FILE *V = fopen("archivos/Ventas.dat", "rb");///     ABRO ARCHIVO VENTAS
     if ( V == NULL) {
         cout<< "No se pudo abrir Ventas.dat";
-        fclose(F);
-        return ;
+        system("pause");
+        return 0;
     }
 
     while( fread( &V_Pago, sizeof(Ventas), 1 , V)){ ///     LEO VENTAS Y SI ES IGUAL QUE NROFAT LO SUMA A LA VARIABLE SUMA
-        if( NroFat == V_Pago.getNro_Fact() ){
+        cout<<"Nro_Nueva_Factura: "<<Nro_Nueva_Factura<<"    "<<"V_Pago.getNro_Fact()"<<V_Pago.getNro_Fact()<<endl;
+        if(Nro_Nueva_Factura == V_Pago.getNro_Fact() ){
+            cout<<"ENTRE EN EL IF"<<endl;
             Suma += V_Pago.getImporte();
-            cout<<"SUMA: "<<Suma<<endl;
-            system("pause");
         }
     }
-    ///     LE ENVIO A SETTOTAL_PAGAR LA SUMA Y LO GUARDA EN LA EL ATRIBUTO TOTAL_PAGAR
-    F_Pago.setTotal_Pagar(Suma);
-    ///     LO UBICA EN EL ULTIMO REGISTRO
-    fseek(F, -1 * sizeof(Factura), SEEK_END);
-    ///     LO REESCRIBE CON LA SUMA TOTAL DEL PAGO
-    if(fwrite(&F_Pago, sizeof(Factura), 1, F) == 1 ){
-        cout<<"Se Grabo Correctamente";
-    }
+    cout<<" SUMA DENTRO DE SUMAR VENTAS"<<endl;
+    system("pause");
     fclose(V);
-    fclose(F);
+    return Suma;
 }
 
 void Descuento_Stock(int NroFactura){
@@ -99,11 +85,8 @@ void Descuento_Stock(int NroFactura){
     }
     ///     LEO VENTAS Y SI ES IGUAL QUE NROFAT LO SUMA A LA VARIABLE SUMA
     while( fread( &P_Stock, sizeof(Producto), 1 , P)){
-
-
         fseek(V, sizeof(Ventas), SEEK_SET);
         while( fread( &V_Stock, sizeof(Ventas), 1, V)){
-
             if( NroFactura == V_Stock.getNro_Fact()
                && P_Stock.getID() == V_Stock.getCod_Producto()){
                 int pos = P_Stock.Buscar_Producto_ID(P_Stock.getID());
@@ -123,12 +106,15 @@ void Descuento_Stock(int NroFactura){
     fclose(P);
 }
 
-bool Factura::Guardo(){
+bool Factura::GuardoFactura(){
     FILE *Fact=fopen("archivos/Facturas.dat", "ab");
-    if(Fact == NULL){cout<<"No se abrió el Archivo Facturas.dat"; return false;}
-    fwrite(this, sizeof(Factura),1,Fact);///Despues de guardar esta en la ultima posición
+    if(Fact == NULL){
+        cout<<"No se abrió el Archivo Facturas.dat";
+        return false;
+    }
+    bool Escribio = fwrite(this, sizeof(Factura),1,Fact);///Despues de guardar esta en la ultima posición
     fclose(Fact);
-    return true;
+    return Escribio;
 }
 
 void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
@@ -141,12 +127,10 @@ void Factura::Muestro_Guardado(){///PARA VERIFICAR SI REALMENTE GRABÓ
 }
 
 void MENU_FACTURACION(){
-
     int Opcion=200;
     while(Opcion){
         system("cls");
         title("MENU FACTURACION", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-
         cout<<"\n============================================  |";
         cout<<"\n01-Generar Factura..........................  |";
         cout<<"\n02-Muestro Factura..........................  |";
@@ -159,30 +143,30 @@ void MENU_FACTURACION(){
         cout<<"\n============================================  |";
         cout<<"\nOpcion: "; cin>>Opcion;
         cout<<"============================================\n";
-
-
        switch(Opcion){
             case 1:
             {
                 int CodProducto, CantProducto, Registros=0;
                 char Mas_Producto = 's';
                 Factura Nueva;
-                Nueva = GeneroNuevaFactura();  ///  DEVUELVO EL REGISTRO FACURA
+                Nueva = GeneroNuevaFactura(); ///  DEVUELVO EL REGISTRO FACURA
+                cout<<"Nueva.getNros_Factura():  "<<Nueva.getNros_Factura()<<endl;
                 {   ///     CREO OBJETOS PRODUCTO Y VENTAS
                     Producto Prod;
                     Ventas Vent;
                     vector<Ventas> V_venta;
                     while(Mas_Producto == 's' || Mas_Producto == 'S'){
-                        cout<<"\n 0 = Muestra listado productos";
+                            cout<<"\n 0 = Muestra listado productos";
                         do{     ///     SI INGRESA 0 MUESTRA EL LISTADO O ERRONEO VUELVE A PEDIR INGRESO
                             cout<<"\n  CodProducto: "; cin>>CodProducto;
                             while(CodProducto == 0){
                                 Prod.Mostrar();
-                                cout<<"\n>>>CodProducto: ";          cin>>CodProducto;
+                                cout<<"\n>>>CodProducto: ";
+                                cin>>CodProducto;
                             }
                             ///     CARGO CANTIDAD DEL PRODUCTO
-                            cout<<"Ingrese Cantidad de Producto: ";  cin>>CantProducto;
-
+                            cout<<"Ingrese Cantidad de Producto: ";
+                            cin>>CantProducto;
                             Registros = V_venta.size();
                             if(Registros>0){
                                 for(unsigned int i=0; i<V_venta.size(); i++){
@@ -195,31 +179,53 @@ void MENU_FACTURACION(){
                             Vent = Preventa(CodProducto, Nueva.getNros_Factura(), CantProducto);
                             if(Vent.getImporte()> 0){
                                 V_venta.push_back(Vent);
-                            }else{CodProducto =0;}
+                            }else{CodProducto = 0;}
                         }while(CodProducto ==0);
-
+                            system("cls");
+                            cout<<endl<<endl;
+                            Mostrar_Comprobante();
+                            Encab_Fac(-1);
+                            Factura().MostrarFactura();
+                            Encab_Venta();
                             for(unsigned  int i=0; i<V_venta.size(); i++){
                                 V_venta.at(i).MostrarVenta();
                             }
-                            cout<<"*Continua ingresando Productos? S=SI; N=NO: ";
+                            cout<<"==============================================================================="<<endl;
+                            cout<<"\n*****Continua ingresando Productos?*****"<<endl;
+                            cout<<" S = CONTINUA, N = NO CONTINUA: ";
                             cin>>Mas_Producto;
                         while(!(Mas_Producto=='S'||Mas_Producto=='N'||Mas_Producto=='s'||Mas_Producto=='n')){
-                            cout<<">>> Debe Ingresar un valor correcto"; cin>>Mas_Producto;
+                            cout<<">>>>> Debe Ingresar un valor correcto <<<<<<<"<<endl;
+                            cout<<" S = CONTINUA, N = NO CONTINUA: ";
+                            cin>>Mas_Producto;
                         }
                     }   /// Cierro el while de Ventas
 
                     char confirmar;
-                    cout<<"Confirmar Factura: SI=S, NO=N  "; cin>>confirmar;
+                    cout<<"    CONFIRMA FACTURA   "<<endl;
+                    cout<<" S = CONFIRMA, N = NO CONFIRMA: ";
+                     cin>>confirmar;
                         while(!(confirmar == 's' || confirmar == 'S' || confirmar == 'n' || confirmar == 'N')){
-                            cout<<">>>>>Confirmar Factura: SI=S, NO=N  "; cin>>confirmar;
+                            cout<<"\n>>>>>Confirmar Factura <<<<<<<  "<<endl;
+                            cout<<" S = CONFIRMA, N = NO CONFIRMA: ";
+                             cin>>confirmar;
                         }
                         if(confirmar == 's' || confirmar== 'S'){
+                            int Regi=0;
+                            float Suma = 0;
                             for(unsigned int i=0; i<V_venta.size(); i++){
-                                V_venta.at(i).GuardaVentas(Vent);   ///     GUARDO EN EL ARCHIVO VENTAS OJO ANTES DE GUARDAR
+                                if(V_venta.at(i).getImporte()!=0){
+                                    V_venta.at(i).GuardaVentas();   ///     GUARDO EN EL ARCHIVO VENTAS OJO ANTES DE GUARDAR
+                                    Regi++;
+                                    Suma += V_venta.at(i).getImporte();
+                                }
                             }
-                            SumarVentas(Vent.getNro_Fact()); ///TENGO QUE VER QUE PASA QUE NO SUMA Y AGREGA A FACTURA
-                            Nueva.Guardo();
-                            Descuento_Stock(Nueva.getNros_Factura());
+                            cout<<"PRODUCTOS DIFERENTES = "<<Regi<<endl;
+                            cout<<"SUMA DE IMPORTES     = "<<Suma<<endl;
+                            system("pause");
+                            Nueva.setTotal_Pagar(Suma); ///TENGO QUE VER QUE PASA QUE NO SUMA Y AGREGA A FACTURA
+                            Nueva.GuardoFactura();
+                            ///Descuento_Stock(Nueva.getNros_Factura());
 
                             system("cls");
                         }else{
@@ -318,71 +324,93 @@ Factura GeneroNuevaFactura(){
     int Cliente=-1;
     cout<<"\nINGRESE CLIENTE: "; cin>>Cliente;
     cout<<"Fecha: "<<Nueva.getFecha().getDia()<<"/"<<Nueva.getFecha().getMes()<<"/"<<Nueva.getFecha().getAnio()<<endl;
-    ///GENERO NRO FACTURA CON NRO CLIENTE EN LA MEMORIA.
-    ///Nueva.setFactura(Cliente);
-    int fact = Nueva.Leo_Ultima_Factura()+1;
-    Nueva.setNroFact(fact);
-    ///Nueva.setFecha_Factura(Fecha().setFechaHoy()); ///Fecha_Factura.setFechaHoy();
-    Nueva.setNro_Cliente(Cliente);
-    Nueva.setTotal_Pagar( 0);///FUNCION PARA SUMAR LA VENTA FALTA
-    Nueva.setEstado(true);
+    int Nueva_fact = Leo_Ultima_Factura()+1; ///DEVUELVE LA ULTIMA FACTURA DEL ARCHIVO FACTURA.DAT + 1
+    if(Nueva_fact > -1){
+        Nueva.setNroFact(Nueva_fact);
+        Nueva.setNro_Cliente(Cliente);
+        Nueva.setTotal_Pagar(0);///FUNCION PARA SUMAR LA VENTA FALTA
+        Nueva.setEstado(true);
+    }
     ///         ======ACA PUEDO LLAMAR A LA FUNCION QUE MUESTRA LOS DATOS DE LA FACTURA  =====
     return Nueva;
     }
 }
 
-void Mostrar_ResumenVenta(){ ///de la Factura Actual
-    cout<<"ENTRE EN MOSTRAR RESUMEN VENTA"<<endl;
-    system("pause");
+void Encab_Venta(){
+    ///     Muestro las ventas de la facturael resumen de ventas
+    cout<<"==============================================================================="<<endl;
+    cout << left;
+    cout << setw(6) << "NROF";
+    cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
+    cout<<"==============================================================================="<<endl;
+}
 
+void Encab_Fac(int Nro=0){ /// 0, -1 o Nro.
+    cout<<"==============================================================================="<<endl;
+
+    if(Nro == 0){
+        cout<<"       DETALLE DE LAS FACTURAS EMITIDAS Y ELIMINADAS: "<<endl;
+    }else{
+        if(Nro == -1){
+            cout<<"       DETALLE DE LA FACTURA:"<<endl;
+        } else{
+            cout<<"       DETALLE DE FACTURA NRO: "<<Nro<<endl;
+        }
+    }
+    cout<<"==============================================================================="<<endl;
+    cout << right;
+    cout << setw(4) << "NROF";
+    cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
+    cout<<"==============================================================================="<<endl;
+}
+
+void Factura::MostrarFactura(){
+        cout << right;
+        cout << setw(3);
+        cout << getNros_Factura();
+        cout << setw(3);
+        cout << getFecha().getDia();
+        cout << "/";
+        cout << setw(2);
+        cout << getFecha().getMes();
+        cout << "/";
+        cout << setw(4);
+        cout << getFecha().getAnio();
+        cout << setw(9);
+        cout << getNroCliente();
+        cout << setw(12);
+        cout << getTotal_Pagar();
+        cout << setw(8);
+        cout << getEstado();
+        cout << endl;
+}
+
+
+
+void Mostrar_ResumenVenta(){ ///de la Factura Actual
     Factura fac;
     Ventas ven;
-
-    int NroF = fac.Leo_Ultima_Factura()+1; ///Traigo el ultimo numero
-
-        ///     Muestro las ventas de la facturael resumen de ventas
-        cout<<"==============================================================================="<<endl;
-        cout << left;
-        cout << setw(6) << "NROF";
-        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(6) << "Cant" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
-        cout<<"==============================================================================="<<endl;
-        FILE *V = fopen("archivos/Ventas.dat", "rb");
-        if(V == NULL) {
-            cout<<"No se pudo abrir Ventas.dat";
-            return;
-        }
-        while(fread(&ven, sizeof(Ventas), 1, V) ){
-            cout<<"ENTRO EN EL WHILE"<<endl;
-            system("pause");
-
-            int veo = ven.getNro_Fact();
-            cout<<"Nro_F: "<<NroF<<"  veo: "<<veo<<endl;
-            system("pause");
-
-            if(NroF == veo){
-                cout<<"ENTRO EN EL IF ES DECIR NROF == VEO"<<endl;
-                system("pause");
-
-                cout << left;
-                cout << setw(6);
-                cout << ven.getNro_Fact();
-                cout << setw(7);
-                cout << ven.getCod_Producto();
-                cout << setw(18);
-                cout << ven.getDescripcion();
-                cout << setw(6);
-                cout << ven.getCant_Producto();
-                cout << setw(15);
-                cout << ven.getPrecio();
-                cout << setw(10);
-                cout << ven.getImporte()<<endl;
-            }
-        }
-        cout<<"==============================================================================="<<endl;
-        cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
-        fclose(V);
+    int NroF = Leo_Ultima_Factura(); ///Traigo el ultimo numero
+    if(NroF < 0 ){
+        cout<<"NO HAY ARCHIVO PARA LEER"<<endl;
         system("pause");
-        system("cls");
+        return;}
+            FILE *V = fopen("archivos/Ventas.dat", "rb");
+            if(V == NULL) {
+                cout<<"No se pudo abrir Ventas.dat";
+                return;
+            }
+            Encab_Venta();
+            while(fread(&ven, sizeof(Ventas), 1, V) ){
+                if(NroF == ven.getNro_Fact()){
+                    ven.MostrarVenta();
+                }
+            }
+            cout<<"==============================================================================="<<endl;
+            cout<<"MOSTRO HASTA LA ULTIMA FILA"<<endl;
+            fclose(V);
+            system("pause");
+            system("cls");
 }
 
 void Mostrar_TodaVenta(){ ///de la Factura Actual
@@ -393,14 +421,7 @@ void Mostrar_TodaVenta(){ ///de la Factura Actual
             cout<<"No se pudo abrir Ventas.dat ";
             return;
         }
-        cout<<"==============================================================================="<<endl;
-        cout<<"\nRESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS: "<<endl;
-        cout<<"==============================================================================="<<endl;
-        cout << left;
-        cout << setw(6) << "NROF";
-        cout << setw(7) << "Codigo " << setw(18) << "Descripcion" << setw(11) << " Cantidad" << setw(15) << "P. Unidad" << setw(10) << "Importe" << endl;
-        cout<<"==============================================================================="<<endl;
-
+        Encab_Venta();///muestra el encabezado de Ventas..
         while (fread(&Aux, sizeof(Ventas), 1, Veo)){
                 cout << right;
                 cout << setw(3);
@@ -443,66 +464,35 @@ void Mostrar_Comprobante(){
 }
 
 void Mostrar_Rotulo_Factura(){
+    int Nro = Leo_Ultima_Factura();
+    if(Nro < 0){
+        return;
+    }
     Factura Rotulo;
     FILE *Fa= fopen("archivos/Facturas.dat", "rb");
     if(Fa == NULL){
         cout<<"No se pudo abrir Facturas.dat"<<endl;
         return;
     }
+    Encab_Fac(-1);
 
-    cout<<"==============================================================================="<<endl;
-    cout<<"         DETALLE DE LA FACTURA NRO: "<<Rotulo.Leo_Ultima_Factura()<<endl;
-    cout<<"==============================================================================="<<endl;
-    cout << right;
-    cout << setw(4) << "NROF";
-    cout << setw(12) << "DD/MM/AAAA " << setw(10) << "Cliente   " << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
-    cout<<"==============================================================================="<<endl;
-
-    fseek(Fa, -1 * sizeof(Factura), SEEK_END);
+    fseek(Fa, -1*sizeof(Factura), SEEK_END);
     fread(&Rotulo, sizeof(Factura), 1 ,Fa );
-
-        ///if(Rotulo.Leo_Ultima_Factura() == Rotulo.getNros_Factura()){
-            cout << right;
-            cout << setw(3);
-            cout << Rotulo.getNros_Factura();
-            ///int dia; if(Elim.getFecha().getDia()<10){ dia=1; }else{ dia = 2;}
-            cout << setw(3);
-            cout << Rotulo.getFecha().getDia();
-            cout << "/";
-            cout << setw(2);
-            cout << Rotulo.getFecha().getMes();
-            cout << "/";
-            cout << setw(4);
-            cout << Rotulo.getFecha().getAnio();
-            cout << setw(9);
-            cout << Rotulo.getNroCliente();
-            cout << setw(12);
-            cout << Rotulo.getTotal_Pagar();
-            cout << setw(8);
-            cout << Rotulo.getEstado();
-            cout << endl;
-        ///}
-
-    ///cout<<"==============================================================================="<<endl;
+        if(Nro == Rotulo.getNros_Factura()){
+            Rotulo.MostrarFactura();
+        }
     fclose(Fa);
 }
 
 void Mostrar_Facturas_Eliminadas(){
     Factura Elim;
-
     system("cls");
     FILE *Fa= fopen("archivos/Facturas.dat", "rb");
     if(Fa == NULL){
         cout<<"No se pudo abrir Facturas.dat"<<endl;
         return;
     }
-    cout<<"==============================================================================="<<endl;
-    cout<<"\n       RESUMEN DE NROS FACTURAS EMITIDAS Y ELIMINADAS: "<<endl;
-    cout<<"==============================================================================="<<endl;
-    cout << right;
-    cout << setw(4) << "NROF";
-    cout << setw(12) << "DD/MM/AAAA "<<left << setw(10) << " Cliente" << right << setw(12) << "Imp/Pagar" << setw(8) << "Estado" <<  endl;
-    cout<<"==============================================================================="<<endl;
+    Encab_Fac();
 
     while( fread(&Elim, sizeof(Factura), 1 ,Fa )  ){
         if(Elim.getEstado() == false){
@@ -565,6 +555,7 @@ void Menu_Reportes(){
 
             case 4:
             {
+                cout<<"PARA PRUEBAS.............."<<endl;
 
             }
             break;
@@ -874,6 +865,7 @@ void Detalle_Ventas(){  ///     SE HIZO CON VECTORES
     for(unsigned int i=0; i<Vec.size(); i++){
         Vec.at(i).MostrarVenta();
     }
+    cout<<"==============================================================================="<<endl;
     system("pause");
 
 }

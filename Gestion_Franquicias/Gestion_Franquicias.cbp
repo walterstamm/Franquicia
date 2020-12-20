@@ -54,6 +54,7 @@
 		<Unit filename="clases/Factura.h" />
 		<Unit filename="clases/Fecha.cpp" />
 		<Unit filename="clases/Fecha.h" />
+		<Unit filename="clases/Lotes_Productos.cpp" />
 		<Unit filename="clases/Lotes_Productos.h" />
 		<Unit filename="clases/Medios_Pago.cpp" />
 		<Unit filename="clases/Medios_Pago.h" />
