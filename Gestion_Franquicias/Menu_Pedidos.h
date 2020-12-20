@@ -14,6 +14,7 @@ void BuscarID(proveedore *,int);
 void GeneraPedido();///genera pedido
 void ConfirmarPedido();///Confirma pedido realizado o da de baja pedido
 bool BajaPedido(int);/// da de baja al pedido
+bool PedidoRecibido(int);///Confirma que recibio la mercaderia pedida y le carga fecha de vencimiento
 
 
 #endif // MENU_PEDIDOS_H_INCLUDED
