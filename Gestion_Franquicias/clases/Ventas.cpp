@@ -50,8 +50,6 @@ int Ventas::BuscarPosicion(int Numero){
         if(Numero == V_Nro_Fact){
             return Pos;
         }
-
-
     }
     return Pos;
 }

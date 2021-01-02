@@ -46,6 +46,7 @@ class Factura{
 int Leo_Ultima_Factura();
 Factura GeneroNuevaFactura();
 void Mostrar_ResumenVenta();
+int  Mostrar_ResumenVenta(int);
 void Mostrar_TodaVenta();
 void Mostrar_Facturas_Eliminadas();
 float SumarVentas(int);

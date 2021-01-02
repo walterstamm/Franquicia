@@ -191,3 +191,53 @@ int Producto::getCantidad_Cod(int cod){
 
     return Cantidad;
 }
+
+bool Cargar_Producto(int ID){
+    char nombre[50];
+    int precio, cantidad, cantidad_Minima;
+    Producto pr;
+    pr.setID(ID);
+    cout<<"ID Nro:            "<<pr.getID()<<endl;
+    cout<<"Ingrese el nombre: ";
+    cin.ignore();
+    cin.getline(nombre, 50, '\n');
+        while(nombre[0] == ' '){///validando el nombre que el primer caracter no sea un espacio
+            cout<<endl<<"Nombre incorrecto, reingrese el Nombre"<<endl<<endl;
+            cout<<">> Ingrese el Nombre: ";
+            cin.getline(nombre, 50, '\n');
+        }
+        pr.setNombre(nombre);
+    cout<<"Ingrese el precio por unidad: $";
+    cin>>precio;
+        while(precio<0){ ///validando Precio que no sea negativo
+            cout<<endl<<"Precio incorrecta, reingrese el Precio"<<endl<<endl;
+            cout<<">> Ingrese el Precio por unidad: $";
+            cin>>precio;
+        }
+        pr.setPrecio(precio);
+    cout<<"Ingrese la cantidad: ";
+    cin>>cantidad;
+        while(cantidad<0){ ///validando Cantidad que no sea negativo
+            cout<<endl<<"Cantidad incorrecta, reingrese el Cantidad"<<endl<<endl;
+            cout<<">> Ingrese el Cantidad: ";
+            cin>>cantidad;
+        }
+        pr.setCantidad(cantidad);
+    cout<<"Ingrese la cantidad minima: ";
+    cin>>cantidad_Minima;
+        while(cantidad_Minima<0){ ///validando minima que no sea negativo
+            cout<<endl<<"cantidad minima incorrecta, reingrese la cantidad mínima"<<endl<<endl;
+            cout<<">> Ingrese el cantidad mínima: ";
+            cin>>cantidad_Minima;
+        }
+        pr.setCantidadMinima(cantidad_Minima);
+    ///bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
+    while(Fecha().Cargar_Fecha_Vencimiento()!=true){
+        cout<<endl<<"Fecha de vencimiento incorrecta"<<endl<<endl;
+        if(Continuar()==false){
+            system ("cls");
+            return false;
+        }
+    }
+    return true;
+}

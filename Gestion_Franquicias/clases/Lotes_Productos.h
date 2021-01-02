@@ -26,6 +26,7 @@ class Lotes_Prod{
         void setLid(int Id){ LId= Id;}
         void setLCodProd(int CodProd){ LCodProd = CodProd;}
         void setLCantidad(int Cant){ LCantidad = Cant;}
+        void setSumo_Cantidad(int, int);
         void setFe_Vto(Fecha fe){LFe_Vto = fe;}
         void setLEstado_true(){ LEstado = true;}
         void setLEstado_false(){ LEstado = false;}
@@ -46,9 +47,11 @@ class Lotes_Prod{
         int NuevoID();///TRAE EL NUEVO LID PARA CARGAR UN NUEVO LOTE.
         void ModificarLote(int);
         void Suma_Cantidad(int Suma){ LCantidad += Suma;}
+
 };
 
 void Encab_Lote();
+void Descuento_Lote(int);
 
 
 

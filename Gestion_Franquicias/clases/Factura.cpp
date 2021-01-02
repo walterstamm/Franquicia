@@ -11,6 +11,7 @@ using namespace std;
 #include "Ventas.h"
 #include "Producto.h"
 #include "Comprobantes.h"
+#include "Lotes_Productos.h"
 
 int Factura::BuscarPosicionFactura(int Nro){
     int pos=0;
@@ -225,8 +226,9 @@ void MENU_FACTURACION(){
                             system("pause");
                             Nueva.setTotal_Pagar(Suma); ///TENGO QUE VER QUE PASA QUE NO SUMA Y AGREGA A FACTURA
                             Nueva.GuardoFactura();
-                            ///Descuento_Stock(Nueva.getNros_Factura());
 
+                            ///PARA DESCONTAR DE LOTES
+                            Descuento_Lote(Nueva.getNros_Factura());
                             system("cls");
                         }else{
                             cout<<"SE ELIMINO LOS REGISTROS DE VENTAS Y LA FACTURA"<<endl;
@@ -235,7 +237,6 @@ void MENU_FACTURACION(){
                 }///        HASTA ACA LA ULTIMA LINEA
             }
             break;
-
             case 2:///      02-Muestro Factura..........................";
             {
             Mostrar_Comprobante();
@@ -243,7 +244,6 @@ void MENU_FACTURACION(){
             Mostrar_ResumenVenta();
             }
             break;
-
             case 3:///      03-Eliminar Factura.........................";
             {   ///     CREO UN OBJETO CLASE FACTURA
                 Factura Baj;
@@ -281,33 +281,26 @@ void MENU_FACTURACION(){
                 }
             }
             break;
-
             case 4:///      04-Listar Facturas Eliminadas...............";
             {
             Mostrar_Facturas_Eliminadas();
             }
             break;
-
             case 5:///      n05-Listar Facturas por Nro y Prod (todas)...";
             {
             Mostrar_TodaVenta();
             }
             break;
-
             case 6:///      06-Reportes a eleccion por el usuario.......";
             {
             Menu_Reportes();
-
             }
             break;
-
             case 0:///      00- Volver al MENU PRINCIPAL................";
             {
             return;
-
             }
             break;
-
             default:///     mensaje de error con ui.cpp
             {
             msj("           DEBERA ELEGIR UNA OPCION CORRECTA", 15, 4, 15, 1);
@@ -385,8 +378,6 @@ void Factura::MostrarFactura(){
         cout << endl;
 }
 
-
-
 void Mostrar_ResumenVenta(){ ///de la Factura Actual
     Factura fac;
     Ventas ven;
@@ -412,6 +403,57 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
             system("pause");
             system("cls");
 }
+
+int Mostrar_ResumenVenta(int CodProd){
+    int Anio, Mes, Dia, LoteId;
+    Lotes_Prod R_Lot;
+    vector<Lotes_Prod> V_Lotes;
+    FILE *L = fopen("archivos/Lotes.dat", "rb");
+    if(L==NULL) return -1;
+    while(fread(&R_Lot, sizeof(Lotes_Prod), 1, L)){
+        if(R_Lot.getLCodProd() == CodProd){
+            V_Lotes.push_back(R_Lot);
+        }
+    }
+    for(unsigned int i=0; i<V_Lotes.size(); i++){
+        if(i==0 && V_Lotes.at(i).getLEstado() == 1){
+                        LoteId = V_Lotes.at(i).getLId();
+                        Anio   = V_Lotes.at(i).getLFe_Vto().getAnio();
+                        Mes    = V_Lotes.at(i).getLFe_Vto().getMes();
+                        Dia    = V_Lotes.at(i).getLFe_Vto().getDia();
+        }else{
+            if(V_Lotes.at(i).getLFe_Vto().getAnio() < Anio
+               && V_Lotes.at(i).getLEstado() == 1){
+                        LoteId = V_Lotes.at(i).getLId();
+                        Anio   = V_Lotes.at(i).getLFe_Vto().getAnio();
+                        Mes    = V_Lotes.at(i).getLFe_Vto().getMes();
+                        Dia    = V_Lotes.at(i).getLFe_Vto().getDia();
+            }else{
+                if(V_Lotes.at(i).getLFe_Vto().getAnio() == Anio
+                   && V_Lotes.at(i).getLFe_Vto().getMes() < Mes
+                   && V_Lotes.at(i).getLEstado() == 1){
+                        LoteId = V_Lotes.at(i).getLId();
+                        Anio   = V_Lotes.at(i).getLFe_Vto().getAnio();
+                        Mes    = V_Lotes.at(i).getLFe_Vto().getMes();
+                        Dia    = V_Lotes.at(i).getLFe_Vto().getDia();
+                }else{
+                    if(V_Lotes.at(i).getLFe_Vto().getAnio() == Anio
+                        && V_Lotes.at(i).getLFe_Vto().getMes() == Mes
+                        && V_Lotes.at(i).getLFe_Vto().getDia() <  Dia
+                        && V_Lotes.at(i).getLEstado() == 1){
+                        LoteId = V_Lotes.at(i).getLId();
+                        Anio   = V_Lotes.at(i).getLFe_Vto().getAnio();
+                        Mes    = V_Lotes.at(i).getLFe_Vto().getMes();
+                        Dia    = V_Lotes.at(i).getLFe_Vto().getDia();
+                    }
+                }
+            }
+        }
+    }
+    return LoteId;
+}
+
+
 
 void Mostrar_TodaVenta(){ ///de la Factura Actual
         Ventas Aux;

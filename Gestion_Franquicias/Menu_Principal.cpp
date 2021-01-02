@@ -29,7 +29,7 @@ void MENU_PRODUCTO(){
         system ("cls");
         switch(opcion){
         case 1:
-            Cargar_Producto();
+            Cargar_Producto(); ///declaracion recibe un int
             system("pause");
             system("cls");
         break;

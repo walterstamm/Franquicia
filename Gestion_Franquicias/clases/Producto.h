@@ -1,11 +1,12 @@
 #ifndef PRODUCTO_H_INCLUDED
 #define PRODUCTO_H_INCLUDED
 #include "Fecha.h"
+#include <cstring>
 
 class Producto{
     private:
         int ID;
-        char Nombre [50];
+        char Nombre[50];
         float Precio;
         int Cantidad;
         int Cantidad_Minima;
@@ -30,15 +31,18 @@ class Producto{
         int getCantidad_Cod(int);
         bool ModificarProducto(int); ///recibe la posicion en memoria del producto
         ///set
+        void setID(int id){ ID = id;}
+        void setNombre(char *nomb){strcpy(Nombre, nomb);}
         void setMod_Cantidad(int Modif) {Cantidad += Modif;}
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
-        void setEstado(int _estado){estado= _estado;}
-        void setPrecio(float _Precio){Precio=_Precio;}
+        void setEstado(int _estado){estado = _estado;}
+        void setPrecio(float _Precio){Precio =_Precio;}
         bool ValidarCantidadProducto(int);///valida que la cantidad vendida no sobrepase la cantidad existente
+
 };
 
 bool ValidarIDProducto(int); ///validad que el ID no exista
-
+bool Cargar_Producto(int);
 
 #endif // PRODUCTO_H_INCLUDED
