@@ -36,6 +36,7 @@ int Ventas::Leo_Ventas(){
         Cant_Ventas ++;
     }
     getNro_Fact();
+    fclose(Ven);
     return Cant_Ventas;
 }
 
@@ -51,6 +52,7 @@ int Ventas::BuscarPosicion(int Numero){
             return Pos;
         }
     }
+    fclose(Ven);
     return Pos;
 }
 
@@ -79,6 +81,7 @@ void Ventas::getVentas(int NroFact){
     cout<<"\nCant_Producto:"<<Cant_Producto;
     cout<<"\nPrecio: "<<Precio;
     cout<<"\nSubtotal: "<<Importe;
+    fclose(V);
 }
 
 void Ventas::MostrarVenta(){
@@ -138,4 +141,5 @@ void Ventas::GuardaVentas(){
     } else{
         if(caso == 1){ }
     }
+    fclose(Ven);
 }

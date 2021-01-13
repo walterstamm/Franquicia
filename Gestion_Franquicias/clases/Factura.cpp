@@ -228,9 +228,11 @@ void MENU_FACTURACION(){
                             system("pause");
                             Nueva.setTotal_Pagar(Suma); ///TENGO QUE VER QUE PASA QUE NO SUMA Y AGREGA A FACTURA
                             Nueva.GuardoFactura();
-
                             ///PARA DESCONTAR DE LOTES
-                            ///Descuento_Lote(Nueva.getNros_Factura());
+                            cout<<" Nueva.getNros_Factura() "<<Nueva.getNros_Factura()<<endl;
+                            system("pause");
+                            Descuento_Lote(Nueva.getNros_Factura());
+                            system("pause");
                             system("cls");
                         }else{
                             cout<<"SE ELIMINO LOS REGISTROS DE VENTAS Y LA FACTURA"<<endl;
