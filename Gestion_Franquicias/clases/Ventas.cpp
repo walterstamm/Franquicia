@@ -65,6 +65,22 @@ void Ventas::getVentas(){
     cout<<"\nSubtotal: "<<Importe;
 }
 
+void Ventas::getVentas(int NroFact){
+    FILE *V = fopen("archivos/Ventas.dat", "rb");
+    if(V== NULL) return;
+    while(fread(this, sizeof this, 1, V)){
+        if(V_Nro_Fact == NroFact){
+
+        }
+    }
+    cout<<"\nNro_Factura: "<<V_Nro_Fact;
+    cout<<"\nCod_Produto: "<<Cod_Producto;
+    cout<<"\nDescripción: "<<Descripcion;
+    cout<<"\nCant_Producto:"<<Cant_Producto;
+    cout<<"\nPrecio: "<<Precio;
+    cout<<"\nSubtotal: "<<Importe;
+}
+
 void Ventas::MostrarVenta(){
     cout << right;
     cout << setw(4);

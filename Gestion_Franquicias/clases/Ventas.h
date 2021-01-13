@@ -26,7 +26,7 @@ class Ventas{
         int getCant_Producto(){ return Cant_Producto;}
         float getPrecio(){ return Precio;}
         float getImporte(){ return Importe;}
-        void getVentas(int);
+        void getVentas(int); /// Muestro el registro de Ventas que son igual al nro factura
         int getNro_Fact(){return V_Nro_Fact;}
         int Leo_Ventas();
         int BuscarPosicion(int);

@@ -22,6 +22,7 @@ void MenuLotes(){
         cout<<"03 LISTAR LOTES POR COMPLETO                           "<<endl;
         cout<<"04 CARGAR LOTE NUEVO                                   "<<endl;
         cout<<"05 MODIFICAR UN REGISTRO DE UN LOTE ESPECIFICO         "<<endl; ///TRABAJAR CON ESTO GRABA UN NUEVO REGISTRO
+        cout<<"06 DESCONTAR PRODUCTOS DE FACTURA                      "<<endl;
         cout<<"00 SALIR                                               "<<endl;
         cout<<"====================================================== "<<endl;
         cout<<" Opcion:  ";    cin>>Opcion;
@@ -37,14 +38,15 @@ void MenuLotes(){
             cout<<"Ingrese el Código del Producto: "; cin>>CodProd;
             Encab_Lote();
             lot.Leer_Lotes_Prod(CodProd);}
+            system("pause");
         break;
         case 3:
             {system("cls");
             Encab_Lote();
             lot.Leer_Lotes_Prod(-2);}
         break;
-        case 4:
-            {lot.Cargar_Lotes_Prod();
+        case 4:{
+            lot.Cargar_Lotes_Prod();
             lot.Grabar_Lotes_Prod(-1);}
         break;
         case 5:
@@ -53,12 +55,19 @@ void MenuLotes(){
             cout<<"INGRESE LOTE A MODIFICAR: "; cin>>Lote;
             lot.ModificarLote(Lote);}
         break;
+        case 6:{
+            cout<<" DESCONTAR LOS PRODUCTOS DE LA FACTURA DE LOS LOTES..............."<<endl;
+            int Factura;
+            cout<<"FACTURA NRO:  "; cin>>Factura;
+            Descuento_Lote(Factura);
+        }
+        break;
         case 0:
             return;
         break;
-        default:
+        default:{
             cout<<"INGRESE UN VALOR DEL MENU";
-            system("pause");
+            system("pause");}
         break;
         }
     }
@@ -109,6 +118,7 @@ void Lotes_Prod::ModificarLote(int Lote){
                 cout<<"5= Nro Pedido......................................"<<endl;
                 ///cout<<"6= Nro Id Lote....................................."<<endl;
                 cout<<"0= Terminar........................................"<<endl;
+                cout<<"9= DESCONTAR LA FACTURA DE LOS LOTES..............."<<endl;
                 cout<<"==================================================="<<endl;
                 cout<<"Ingrese: "; cin>>op;
                 switch(op){
@@ -161,6 +171,113 @@ void Lotes_Prod::ModificarLote(int Lote){
                 }
             }
         }
+    }
+}
+
+void Descuento_Lote(int fact){
+    Ventas ven;
+    Lotes_Prod Prod;
+    FILE *V = fopen("archivos/Ventas.dat", "rb");
+    if(V==NULL) {
+        cout<<"ERROR VENTAS.DAT  "<<endl;
+        return;
+    }
+    while(fread(&ven, sizeof(Ventas), 1, V)){
+        if(ven.getNro_Fact() == fact){
+            int pos = Busco_Pos(ven.getCod_Producto()); ///Tengo la posicion del CodProd y mas viejo
+            if(pos != -1){
+                int Cant = ven.getCant_Producto();
+                Leo_Lotes(pos, Cant);
+
+                ///cout<<"ven.getCant_Producto() "<<ven.getCant_Producto();
+                ///Prod.setLCantidad(Cant);
+                ///Prod.Grabar_Lotes_Prod(pos);
+                cout<<"FINALIZO EL WHILE"<<endl;
+                system("pause");
+            }
+        }
+    }
+}
+
+int Busco_Pos(int Codigo){///busco en lotes con CodProd y mas viejo
+    int Pos=-1, dia=0, mes, anio, Coincide;
+    Lotes_Prod lot;
+    FILE *L = fopen("archivos/Lotes.dat", "rb");
+    if(L == NULL){
+        return Pos;
+    }
+    while(fread(&lot, sizeof(Lotes_Prod), 1, L)){
+        Pos++;
+        if(lot.getLCodProd() == Codigo){
+            if(dia==0){
+                anio = lot.getLFe_Vto().getAnio();
+                mes=lot.getLFe_Vto().getMes();
+                dia=lot.getLFe_Vto().getDia();
+                Coincide = Pos;
+            }else{
+                if(anio > lot.getLFe_Vto().getAnio()){
+                anio = lot.getLFe_Vto().getAnio();
+                mes  = lot.getLFe_Vto().getMes();
+                dia  = lot.getLFe_Vto().getDia();
+                Coincide = Pos;
+                }else{
+                    if(anio == lot.getLFe_Vto().getAnio() && mes > lot.getLFe_Vto().getMes()){
+                anio = lot.getLFe_Vto().getAnio();
+                mes  = lot.getLFe_Vto().getMes();
+                dia  = lot.getLFe_Vto().getDia();
+                Coincide = Pos;
+                }else{
+                    if(anio == lot.getLFe_Vto().getAnio() && mes == lot.getLFe_Vto().getMes()
+                       && dia > lot.getLFe_Vto().getDia()){
+                anio = lot.getLFe_Vto().getAnio();
+                mes  = lot.getLFe_Vto().getMes();
+                dia  = lot.getLFe_Vto().getDia();
+                Coincide = Pos;
+                }
+                }
+                }
+            }
+        }
+    }
+    fclose(L);
+    return Coincide;
+}
+
+void Leo_Lotes(int pos, int Cant){
+    Lotes_Prod Lot;
+    FILE *L = fopen("archivos/Lotes.dat", "rb");
+    if(L == NULL){
+        return;
+    }
+    fseek(L, pos*sizeof(Lotes_Prod), SEEK_SET);
+    fread(&Lot, sizeof(Lotes_Prod), 1, L);
+    cout<<"Muestro lote: "<<endl;
+    Lot.MuestroLote();
+    Lot.Suma_Cantidad(Cant);
+    Lot.Grabar_Lotes_Prod(pos);
+
+    system("pause");
+    fclose(L);
+}
+
+void Lotes_Prod::Suma_Cantidad(int Pos, int Cant){
+    FILE *Lot = fopen("archivos/Lotes.dat", "rb+");
+    if(Lot == NULL){
+      cout<<"NO ENTRO EN LOTES RB+"<<endl;
+      system("pause");
+      return;
+    }
+    fseek(Lot, Pos * sizeof Lot, SEEK_SET);
+    fread(this, sizeof this, 1, Lot);
+    Encab_Lote();
+    MuestroLote();
+    system("pause");
+    if(fwrite(this, sizeof this, 1, Lot)){
+        cout<<"grabo"<<endl;
+        system("pause");
+    }else{
+        cout<<"ERROR EN LA GUARDA"<<endl;
+        system("pause");
     }
 }
 
@@ -264,22 +381,6 @@ bool Lotes_Prod::Leer_Lotes_Prod(int CodProd=-1){ ///-1 LOTES ACTIVOS, -2 TOTAL,
     return true;
 }
 
-void Descuento_Lote(int Fact){
-    int Lote;
-    Ventas R_vent;
-    Lotes_Prod Lot;
-    FILE *V=fopen("archivos/Ventas.dat", "rb");
-    if(V==NULL) return;
-    while(fread(&R_vent, sizeof(Ventas), 1, V)){
-        if(R_vent.getNro_Fact() == Fact){
-            Lote = Mostrar_ResumenVenta(R_vent.getCod_Producto());
-            if(Lote != -1){
-                Lot.setSumo_Cantidad(Lote, R_vent.getCant_Producto());
-            }
-        }
-    }
-    fclose(V);
-}
 
 void Lotes_Prod::setSumo_Cantidad(int Lote, int Cant){
     int Pos=-1;

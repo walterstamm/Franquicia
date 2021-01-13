@@ -46,12 +46,15 @@ class Lotes_Prod{
         ///bool Leer_Lotes_Prod();
         int NuevoID();///TRAE EL NUEVO LID PARA CARGAR UN NUEVO LOTE.
         void ModificarLote(int);
-        void Suma_Cantidad(int Suma){ LCantidad += Suma;}
+        void Suma_Cantidad(int Suma){ LCantidad -= Suma;}
+        void Suma_Cantidad(int, int);/// POS Y CANTIDAD
+
 
 };
-
+void Leo_Lotes(int, int); ///CON LA POS y cant LEO EL REGISTRO
 void Encab_Lote();
 void Descuento_Lote(int);
+int Busco_Pos(int); ///busco en lotes con CodProd y mas viejo
 
 
 

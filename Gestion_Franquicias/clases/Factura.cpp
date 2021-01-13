@@ -150,10 +150,11 @@ void MENU_FACTURACION(){
                 int CodProducto, CantProducto, Registros=0;
                 char Mas_Producto = 's';
                 Factura Nueva;
+                Producto Pro;
                 Nueva = GeneroNuevaFactura(); ///  DEVUELVO EL REGISTRO FACURA
-                cout<<"Nueva.getNros_Factura():  "<<Nueva.getNros_Factura()<<endl;
+                cout<<"FACTURA NURO: "<<Nueva.getNros_Factura()<<"=="<<endl;
                 {   ///     CREO OBJETOS PRODUCTO Y VENTAS
-                    Producto Prod;
+
                     Ventas Vent;
                     vector<Ventas> V_venta;
                     while(Mas_Producto == 's' || Mas_Producto == 'S'){
@@ -161,7 +162,7 @@ void MENU_FACTURACION(){
                         do{     ///     SI INGRESA 0 MUESTRA EL LISTADO O ERRONEO VUELVE A PEDIR INGRESO
                             cout<<"\n  CodProducto: "; cin>>CodProducto;
                             while(CodProducto == 0){
-                                Prod.Mostrar();
+                                Pro.Mostrar();
                                 cout<<"\n>>>CodProducto: ";
                                 cin>>CodProducto;
                             }
@@ -207,7 +208,7 @@ void MENU_FACTURACION(){
                     cout<<" S = CONFIRMA, N = NO CONFIRMA: ";
                      cin>>confirmar;
                         while(!(confirmar == 's' || confirmar == 'S' || confirmar == 'n' || confirmar == 'N')){
-                            cout<<"\n>>>>>Confirmar Factura <<<<<<<  "<<endl;
+                            cout<<"\n>>>>> CONFIRMAR FACTURA <<<<<<<  "<<endl;
                             cout<<" S = CONFIRMA, N = NO CONFIRMA: ";
                              cin>>confirmar;
                         }
@@ -219,6 +220,7 @@ void MENU_FACTURACION(){
                                     V_venta.at(i).GuardaVentas();   ///     GUARDO EN EL ARCHIVO VENTAS OJO ANTES DE GUARDAR
                                     Regi++;
                                     Suma += V_venta.at(i).getImporte();
+
                                 }
                             }
                             cout<<"PRODUCTOS DIFERENTES = "<<Regi<<endl;
@@ -228,7 +230,7 @@ void MENU_FACTURACION(){
                             Nueva.GuardoFactura();
 
                             ///PARA DESCONTAR DE LOTES
-                            Descuento_Lote(Nueva.getNros_Factura());
+                            ///Descuento_Lote(Nueva.getNros_Factura());
                             system("cls");
                         }else{
                             cout<<"SE ELIMINO LOS REGISTROS DE VENTAS Y LA FACTURA"<<endl;
@@ -382,10 +384,12 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
     Factura fac;
     Ventas ven;
     int NroF = Leo_Ultima_Factura(); ///Traigo el ultimo numero
+    cout<<"Factura Nro:  "<<NroF<<endl; system("pause");
     if(NroF < 0 ){
         cout<<"NO HAY ARCHIVO PARA LEER"<<endl;
         system("pause");
-        return;}
+        return;
+    }
             FILE *V = fopen("archivos/Ventas.dat", "rb");
             if(V == NULL) {
                 cout<<"No se pudo abrir Ventas.dat";
@@ -906,6 +910,7 @@ void Detalle_Ventas(){  ///     SE HIZO CON VECTORES
 
     for(unsigned int i=0; i<Vec.size(); i++){
         Vec.at(i).MostrarVenta();
+        ///cout<<" ===> "<<i<<" <=== "<<endl;
     }
     cout<<"==============================================================================="<<endl;
     system("pause");
