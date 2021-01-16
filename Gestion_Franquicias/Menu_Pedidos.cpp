@@ -5,6 +5,7 @@
 #include "Menu_Pedidos.h"
 #include "clases/Pedido.h"
 #include "clases/Producto.h"
+#include "clases/Lotes_Productos.h"
 
 using namespace std;
 
@@ -288,7 +289,49 @@ bool BajaPedido(int numPedido){
     return true;
 }
 
+bool AltaPedido(int numPedido){
+    Pedido aux;
+    vector<Pedido> VecPedidos;
+    int i;
+
+    FILE *p=fopen("archivos/Pedidos.dat","rb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+
+    while(fread(&aux,sizeof(Pedido),1,p)){
+        VecPedidos.push_back(aux);
+
+    }
+    fclose(p);
+
+    for(i=0;i<VecPedidos.size();i++){
+        if(VecPedidos[i].getID()==numPedido){
+            VecPedidos[i].setEstado(true);
+            VecPedidos[i].setEstadoFinal(true);
+        }
+    }
+
+    FILE *v=fopen("archivos/Pedidos.dat","wb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+    for(i=0;i<VecPedidos.size();i++){
+        fwrite(&VecPedidos[i],sizeof(Pedido),1,v);
+    }
+
+    fclose(v);
+    return true;
+}
+
 bool PedidoRecibido(int numPedido){
-
-
+    bool respuesta;
+    Lotes_Prod aux;
+    respuesta=aux.AltaPedido(numPedido);
+    AltaPedido(numPedido);
+    return respuesta;
 }
