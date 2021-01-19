@@ -50,6 +50,8 @@ class Lotes_Prod{
         void Suma_Cantidad(int, int);/// POS Y CANTIDAD
 
 
+        bool AltaPedido(int numPedido);
+
 };
 void Leo_Lotes(int, int); ///CON LA POS y cant LEO EL REGISTRO
 void Encab_Lote();

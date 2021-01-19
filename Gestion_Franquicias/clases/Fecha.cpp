@@ -43,22 +43,27 @@ return true;
 }
 
 bool Fecha::Cargar_Fecha_Vencimiento(){
+    int diasFechaActual, diasFechaVencimiento;
+
     cout<<"Ingrese la fecha de vencimiento"<<endl;
+    cout<<"Formato ejemplo dd/mm/aaaa"<<endl;
     cout<<"\t dia    : ";
     cin>>dia;
     cout<<"\t mes    : ";
     cin>>mes;
-    cout<<"\taño (4): ";
+    cout<<"\taño : ";
     cin>>anio;
     if((dia<=0)||(mes<=0)||(anio<=0)){///verificamos que la fecha no sea negativa
         return false;
     }
-    ///fecha no sea mayor a la fecha actual--con 3 preguntas ((anio), (anio y mes), (anio, mes y dia))
-    Fecha uno;///creamos otra fecha para verificar
-    if((anio<uno.anio)||((anio==uno.anio)&&(mes<uno.mes))||((anio==uno.anio)&&(mes<=uno.mes)&&(dia<uno.dia))){
+    Fecha uno;
+    diasFechaActual=(uno.anio*365)+((uno.mes-1)*30)+uno.dia;
+    diasFechaVencimiento=(anio*365)+((mes-1)*30)+dia;
+    if((diasFechaVencimiento-diasFechaActual)<90){
+        cout<<endl<<"Minimo 90 dias de vecimiento, rechaze producto";
         return false;
     }
-return true;
+    return true;
 }
 
 void Fecha::Mostrar_Fecha(){

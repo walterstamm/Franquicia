@@ -293,6 +293,7 @@ void Lotes_Prod::MuestroLote(){   ///     CONSTRUCTOR
     cout << right;
     cout << setw(4)<<LId;
     cout << setw(7)<<LCodProd;
+    cout << setw(7)<<LPedidoId;
     cout << setw(8)<<LCantidad;
     cout << setw(5);
     cout << getLFe_Vto().getDia();
@@ -324,8 +325,44 @@ void Lotes_Prod::Cargar_Lotes_Prod(){
         cout<<">>> Lote Cantidad: "; cin>>LCantidad;
     }
     cout<<"Fecha Vto: ";
-    LFe_Vto.Cargar_Fecha();
+
     cout<<"Estado: "; cin>>LEstado;
+}
+
+bool Lotes_Prod::AltaPedido(int numPedido){
+    char respuesta='S';
+    cout<<"Lote_ID: ";
+    setLid(NuevoID());
+    cout<<getLId()<<endl;
+    setLpedidoId(numPedido);
+
+    while(respuesta=='s'||respuesta=='S'){
+
+        cout<<"Lote CodProducto: ";
+        cin>>LCodProd;
+        while(ValidarIDProducto(LCodProd) == false){
+            cout<<"El código de Producto no existe"<<endl;
+            cout<<">>>Reingrese el código del Producto: ";
+            cout<<">>>Lote CodProducto: "; cin>>LCodProd;
+            ///if(ValidarIDProducto(LCodProd) == true) return;
+        }
+        cout<<"Lote Cantidad: "; cin>>LCantidad;
+        while(!(LCantidad>0 && LCantidad< 120)){
+            cout<<">>> Reingrese Lote Cantidad ";
+            cout<<">>> Lote Cantidad: "; cin>>LCantidad;
+        }
+        cout<<"Fecha Vto: ";
+        if(LFe_Vto.Cargar_Fecha_Vencimiento()){///en caso de fecha valida  guarda el producto
+
+            Grabar_Lotes_Prod(-1);
+            setLEstado_true();
+
+        }
+        cout<<endl<<"Desea cargar mas productos?(S/N)";
+        cin>>respuesta;
+    }
+
+
 }
 
 bool Lotes_Prod::Grabar_Lotes_Prod(int pos){
