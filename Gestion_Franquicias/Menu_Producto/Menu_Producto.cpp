@@ -34,6 +34,7 @@ bool Mostrar_Todos_Producto(){
         if(p==NULL){
             fclose(p);
             cout<<"Error de archivo"<<endl;
+            system("pause");
             return false;
         }
     cout<<"==============================================================================="<<endl;
@@ -42,7 +43,7 @@ bool Mostrar_Todos_Producto(){
     cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
     cout<<"==============================================================================="<<endl;
     while(fread(&uno, sizeof(Producto),1,p)){
-        if(uno.getEstado()==true){
+        if(uno.getEstado() == true){
             uno.Mostrar_Producto();
             mostro=true;
         }

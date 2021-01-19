@@ -208,7 +208,7 @@ void MENU_FACTURACION(){
                     cout<<" S = CONFIRMA, N = NO CONFIRMA: ";
                      cin>>confirmar;
                         while(!(confirmar == 's' || confirmar == 'S' || confirmar == 'n' || confirmar == 'N')){
-                            cout<<"\n>>>>> CONFIRMAR FACTURA <<<<<<<  "<<endl;
+                            cout<<"\n>>>>> CONFIRMA FACTURA <<<<<<<  "<<endl;
                             cout<<" S = CONFIRMA, N = NO CONFIRMA: ";
                              cin>>confirmar;
                         }
@@ -220,19 +220,16 @@ void MENU_FACTURACION(){
                                     V_venta.at(i).GuardaVentas();   ///     GUARDO EN EL ARCHIVO VENTAS OJO ANTES DE GUARDAR
                                     Regi++;
                                     Suma += V_venta.at(i).getImporte();
-
                                 }
                             }
+                            cout<<endl<<endl;
                             cout<<"PRODUCTOS DIFERENTES = "<<Regi<<endl;
                             cout<<"SUMA DE IMPORTES     = "<<Suma<<endl;
                             system("pause");
                             Nueva.setTotal_Pagar(Suma); ///TENGO QUE VER QUE PASA QUE NO SUMA Y AGREGA A FACTURA
                             Nueva.GuardoFactura();
                             ///PARA DESCONTAR DE LOTES
-                            cout<<" Nueva.getNros_Factura() "<<Nueva.getNros_Factura()<<endl;
-                            system("pause");
                             Descuento_Lote(Nueva.getNros_Factura());
-                            system("pause");
                             system("cls");
                         }else{
                             cout<<"SE ELIMINO LOS REGISTROS DE VENTAS Y LA FACTURA"<<endl;
