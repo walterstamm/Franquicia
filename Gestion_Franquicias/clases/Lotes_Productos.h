@@ -53,7 +53,7 @@ class Lotes_Prod{
         bool AltaPedido(int numPedido);
 
 };
-void Leo_Lotes(int, int); ///CON LA POS y cant LEO EL REGISTRO
+Lotes_Prod Leo_Lotes(int, int); ///CON LA POS y cant LEO EL REGISTRO
 void Encab_Lote();
 void Descuento_Lote(int);
 int Busco_Pos(int); ///busco en lotes con CodProd y mas viejo

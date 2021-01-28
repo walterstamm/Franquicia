@@ -43,7 +43,8 @@ void MenuLotes(){
         case 3:
             {system("cls");
             Encab_Lote();
-            lot.Leer_Lotes_Prod(-2);}
+            lot.Leer_Lotes_Prod(-2);
+            system("pause");}
         break;
         case 4:{
             lot.Cargar_Lotes_Prod();
@@ -184,19 +185,39 @@ void Descuento_Lote(int fact){
     }
     while(fread(&ven, sizeof(Ventas), 1, V)){
         if(ven.getNro_Fact() == fact){
-            int pos = Busco_Pos(ven.getCod_Producto()); ///Tengo la posicion del CodProd y mas viejo
-            if(pos != -1){
-                int Cant = ven.getCant_Producto();
-                Leo_Lotes(pos, Cant);
-
-                ///cout<<"ven.getCant_Producto() "<<ven.getCant_Producto();
-                ///Prod.setLCantidad(Cant);
-                ///Prod.Grabar_Lotes_Prod(pos);
-                cout<<"FINALIZO EL WHILE"<<endl;
-                system("pause");
-            }
+            int Cant = ven.getCant_Producto();
+            do{
+                int pos = Busco_Pos(ven.getCod_Producto()); ///Tengo la posicion del CodProd, mas viejo y estado ==1
+                if(pos >= 0){
+                    Prod = Leo_Lotes(pos, Cant);
+                    if(Prod.getLCantidad() > Cant){
+                        Prod.Suma_Cantidad(Cant);   ///ACA TENGO QUE PREGUNTAR SI LO QUE TIENE EN LOTES ES MENOR O NO Ó LLEVAR ESTO A DESCUENTO LOTE Y HACERLO AHÍ.....
+                        Prod.Grabar_Lotes_Prod(pos);
+                        Cant =0;
+                    }else{
+                        if(Prod.getLCantidad() == Cant){
+                            Prod.Suma_Cantidad(Cant);
+                            Prod.setLEstado_false();
+                            Prod.Grabar_Lotes_Prod(pos);
+                            Cant =0;
+                        }else{
+                            if(Prod.getLCantidad() < Cant){
+                                Cant -= Prod.getLCantidad();
+                                Prod.Suma_Cantidad(Prod.getLCantidad());
+                                Prod.setLEstado_false();
+                                Prod.Grabar_Lotes_Prod(pos);
+                                Cant -=Prod.getLCantidad();
+                            }
+                        }
+                    }
+                }else{
+                    Cant = 0;
+                }
+            }while(Cant > 0);
         }
     }
+                cout<<"FINALIZO EL WHILE"<<endl;
+                system("pause");
 }
 
 int Busco_Pos(int Codigo){///busco en lotes con CodProd y mas viejo
@@ -208,7 +229,7 @@ int Busco_Pos(int Codigo){///busco en lotes con CodProd y mas viejo
     }
     while(fread(&lot, sizeof(Lotes_Prod), 1, L)){
         Pos++;
-        if(lot.getLCodProd() == Codigo){
+        if(lot.getLCodProd() == Codigo && lot.getLEstado()== 1){
             if(dia==0){
                 anio = lot.getLFe_Vto().getAnio();
                 mes=lot.getLFe_Vto().getMes();
@@ -243,20 +264,17 @@ int Busco_Pos(int Codigo){///busco en lotes con CodProd y mas viejo
     return Coincide;
 }
 
-void Leo_Lotes(int pos, int Cant){
+Lotes_Prod Leo_Lotes(int pos, int Cant){
     Lotes_Prod Lot;
     FILE *L = fopen("archivos/Lotes.dat", "rb");
     if(L == NULL){
-        return;
+        return Lot;
     }
     fseek(L, pos*sizeof(Lotes_Prod), SEEK_SET);
     fread(&Lot, sizeof(Lotes_Prod), 1, L);
     cout<<"Muestro lote: "<<endl;
     Lot.MuestroLote();
-    Lot.Suma_Cantidad(Cant);
-    Lot.Grabar_Lotes_Prod(pos);
-
-    system("pause");
+    return Lot;
     fclose(L);
 }
 
@@ -293,7 +311,7 @@ void Lotes_Prod::MuestroLote(){   ///     CONSTRUCTOR
     cout << right;
     cout << setw(4)<<LId;
     cout << setw(7)<<LCodProd;
-    cout << setw(7)<<LPedidoId;
+    ///cout << setw(7)<<LPedidoId;
     cout << setw(8)<<LCantidad;
     cout << setw(5);
     cout << getLFe_Vto().getDia();
@@ -325,8 +343,10 @@ void Lotes_Prod::Cargar_Lotes_Prod(){
         cout<<">>> Lote Cantidad: "; cin>>LCantidad;
     }
     cout<<"Fecha Vto: ";
+    LFe_Vto.Cargar_Fecha();
+    setLEstado_true();
 
-    cout<<"Estado: "; cin>>LEstado;
+    ///cout<<"Estado: "; cin>>LEstado;
 }
 
 bool Lotes_Prod::AltaPedido(int numPedido){
