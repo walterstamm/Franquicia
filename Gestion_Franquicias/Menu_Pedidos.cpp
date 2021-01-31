@@ -200,11 +200,9 @@ void BuscarID(proveedore *registro,int id){
 
 
 void GeneraPedido(){
-
     system("cls");
     Pedido reg;
     reg.Cargar_Pedido();
-
 }
 
 

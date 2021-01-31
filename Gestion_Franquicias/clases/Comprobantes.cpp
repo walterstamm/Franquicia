@@ -16,10 +16,8 @@ Encabezado::Encabezado(){///char R_Social, char cuit, char Direc, char Local, ch
     strcpy(Direccion, "");
     strcpy(Localidad_Provincia, "");
     strcpy(Telefono, "");
-
 }
-Encabezado::~Encabezado(){
-}
+Encabezado::~Encabezado(){}
 
 void Encabezado::setRazon_Social(){///Fisica o Jurídica dependiendo de
     cout<<"Ingrese la Razon Social"<<endl;
@@ -27,8 +25,6 @@ void Encabezado::setRazon_Social(){///Fisica o Jurídica dependiendo de
     cin.getline(Razon_Social, 30);
 }
 
-///PREGUNTAR SI CONVIENE O SOLO INGRESAMOS LOS 11 DIGITOS DIRECTAMENTE PUEDO
-///HACER CON UN WHILE QUE CONFIRME LO INGRESADO O VOLVER A INGRESAR.
 void Encabezado::setCuit(){
     cout<<"Ingrese el CUIT: ejemplo 00-00000000-0"<<endl;
     cin.ignore();
@@ -212,6 +208,7 @@ void Menu_Encabezado(){
                         system("pause");
                         if(grabo == 1){
                             msj("           GRABO CORRECTAMENTE", 15, 3, 15, 1 );
+                            fclose(E);
                         }
                         else{
                             cout<<"Verifique que existe un archivo con los Datos de la Empresa\n";
@@ -248,6 +245,7 @@ void Menu_Encabezado(){
         }
         system("cls");
     }
+
 }
 
 

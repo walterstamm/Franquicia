@@ -383,7 +383,6 @@ void Mostrar_ResumenVenta(){ ///de la Factura Actual
     Factura fac;
     Ventas ven;
     int NroF = Leo_Ultima_Factura(); ///Traigo el ultimo numero
-    cout<<"Factura Nro:  "<<NroF<<endl; system("pause");
     if(NroF < 0 ){
         cout<<"NO HAY ARCHIVO PARA LEER"<<endl;
         system("pause");
@@ -466,7 +465,7 @@ void Mostrar_TodaVenta(){ ///de la Factura Actual
             cout<<"No se pudo abrir Ventas.dat ";
             return;
         }
-        Encab_Venta();///muestra el encabezado de Ventas..
+        Encab_Venta();///muestra el título de Ventas..
         while (fread(&Aux, sizeof(Ventas), 1, Veo)){
                 cout << right;
                 cout << setw(3);

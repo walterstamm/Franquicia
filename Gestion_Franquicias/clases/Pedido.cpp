@@ -39,7 +39,7 @@ bool Pedido::Cargar_Pedido(){
         cout<<endl<<"Cantidad: ";
         cin>>Cantidad;
     }
-    if(GuardaPedido()==0){
+    if(GuardaPedido()==0){ ///NNNNNNNNNNNNNNN
         return false;
     }
     cout<<endl<<"Desea agregar mas productos al pedido?";
