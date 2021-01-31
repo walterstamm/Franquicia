@@ -6,6 +6,7 @@ using namespace std;
 #include <cstdio>
 #include "Producto.h"
 #include "../Validaciones/SINO.h"
+#include "Lotes_Productos.h"
 
 Producto::Producto(){
     Precio=0;
@@ -68,6 +69,8 @@ return true;
 }
 
 void Producto::Mostrar_Producto(){
+            Lotes_Prod Prod;
+            int Cant = Prod.Cuento_CantProd_Lotes( ID);
             cout << left;
             cout << setw(4);
             cout << ID;
@@ -81,7 +84,9 @@ void Producto::Mostrar_Producto(){
             cout << setw(10);
             cout << Cantidad_Minima;
             cout << setw(10);
-            cout << Fecha().getDia()<<"/"<<Fecha().getMes()<<"/"<<Fecha().getAnio()<<endl;
+            cout << Fecha().getDia()<<"/"<<Fecha().getMes()<<"/"<<Fecha().getAnio();
+            cout << setw(9);
+            cout << estado <<endl;
 
 
     /**cout<<"ID "<<ID<<endl;
@@ -98,11 +103,12 @@ void Producto::Mostrar_Producto(){
 
 void Producto::Mostrar(){
     Producto pro;
+    Lotes_Prod Lot;
     FILE * P= fopen("archivos/producto.dat","rb");
     if(P==NULL){ return;}
     cout<<"Nro    Cant     Producto"<<endl;
     while(fread(&pro, sizeof(Producto), 1, P)){
-        cout<<pro.getID()<<"      "<<pro.getCantidad()<<"       "<<pro.getNombre()<<endl;
+        cout<<pro.getID()<<"      "<<Lot.Cuento_CantProd_Lotes(pro.getID())<<"       "<<pro.getNombre()<<endl;
     }
     cout<<endl;
     fclose(P);

@@ -51,6 +51,7 @@ class Lotes_Prod{
 
 
         bool AltaPedido(int numPedido);
+        int Cuento_CantProd_Lotes(int);
 
 };
 Lotes_Prod Leo_Lotes(int, int); ///CON LA POS y cant LEO EL REGISTRO

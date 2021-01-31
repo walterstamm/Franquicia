@@ -30,7 +30,7 @@ void Cargar_Producto(){
 bool Mostrar_Todos_Producto(){
     Producto uno;
     bool mostro=false;
-    FILE*p=fopen("archivos/producto.dat","rb");
+    FILE *p=fopen("archivos/producto.dat","rb");
         if(p==NULL){
             fclose(p);
             cout<<"Error de archivo"<<endl;
@@ -40,13 +40,17 @@ bool Mostrar_Todos_Producto(){
     cout<<"==============================================================================="<<endl;
     cout << left;
     cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << setw(9) << "Estado" << endl;
     cout<<"==============================================================================="<<endl;
     while(fread(&uno, sizeof(Producto),1,p)){
-        if(uno.getEstado() == true){
+        uno.Mostrar_Producto();
+
+        /**if(uno.getEstado() == true){
+            cout<<"ESTOY ACA "<<endl;
+            system("pause");
             uno.Mostrar_Producto();
             mostro=true;
-        }
+        }*/
     }
     fclose(p);
 return mostro;

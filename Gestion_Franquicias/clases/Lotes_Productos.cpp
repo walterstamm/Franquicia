@@ -404,7 +404,7 @@ bool Lotes_Prod::Grabar_Lotes_Prod(int pos){
     return grabo;
 }
 
-bool Lotes_Prod::Leer_Lotes_Prod(int CodProd=-1){ ///-1 LOTES ACTIVOS, -2 TOTAL, >=0 POR CODPROD
+bool Lotes_Prod::Leer_Lotes_Prod(int CodProd=-1){ ///-1 LOTES ACTIVOS, -2 TOTAL, >=0 POR CODPROD, -3 CUENTO CANTIDAD EN LOTES
     FILE *L= fopen("archivos/Lotes.dat", "rb");
     if(L==NULL){ return false;}
     if(CodProd == -1){
@@ -438,7 +438,6 @@ bool Lotes_Prod::Leer_Lotes_Prod(int CodProd=-1){ ///-1 LOTES ACTIVOS, -2 TOTAL,
     return true;
 }
 
-
 void Lotes_Prod::setSumo_Cantidad(int Lote, int Cant){
     int Pos=-1;
     FILE *L = fopen("archvos/Lotes.dat", "rb+");
@@ -451,4 +450,18 @@ void Lotes_Prod::setSumo_Cantidad(int Lote, int Cant){
             Grabar_Lotes_Prod(Pos);
         }
     }
+}
+
+int Lotes_Prod::Cuento_CantProd_Lotes(int CodProd){ /// CUENTO LA CANTIDAD DE PRODUCTO NRO DADO EN TODOS LOS LOTES
+    int Cantidad=0;
+    FILE *L= fopen("archivos/Lotes.dat", "rb");
+    if(L==NULL){ return -1;}
+
+    while(fread(this, sizeof *this, 1, L)){
+        if(CodProd == LCodProd){
+            Cantidad += getLCantidad();
+        }
+    }
+    fclose(L);
+    return Cantidad;
 }
