@@ -21,10 +21,10 @@ int main(){
         cout<<endl<<"2) MENÚ PROVEDORES.........";
         cout<<endl<<"3) MENÚ FACTURACION........";
         cout<<endl<<"4) MENÚ STOCK..............";
-        cout<<endl<<"5) MENÚ MEDIOS PAGO........";
-        cout<<endl<<"6) MENÚ DESCUENTO..........";
-        cout<<endl<<"7) SALIR DEL PROGRAMA......";
-        cout<<endl<<"8) MENÚ ENCABEZADO.........";
+        ///cout<<endl<<"5) MENÚ MEDIOS PAGO........";
+        cout<<endl<<"5) MENÚ ENCABEZADO.........";
+        ///cout<<endl<<"6) MENÚ DESCUENTO..........";
+        cout<<endl<<"0) SALIR DEL PROGRAMA......";
         cout<<endl<<"---------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -43,21 +43,21 @@ int main(){
             ///Lotes();
             MenuLotes();
         break;
-        case 5:
+        case 10:
             Menu_Medio_Pago();
         break;
-        case 6:
+        case 9:
             Menu_Descuento();
         break;
-        case 7:
+        case 0:
         break;
-        case 8:
+        case 5:
             Menu_Encabezado();
         break;
         default:
             msj("                     OPCIÓN INCORRECTA", 15, 4, 15, 1);
         break;
         }
-    }while (opcion!=7);
+    }while (opcion!=0);
 return 0;
 }

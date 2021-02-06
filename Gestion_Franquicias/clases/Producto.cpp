@@ -10,16 +10,17 @@ using namespace std;
 
 Producto::Producto(){
     Precio=0;
-    estado=true;
+    estado=false;
 }
 
 Producto::~Producto(){
 }
 
 bool Producto::Cargar_Producto(){
-    cout<<"Ingrese el ID ";
-    cin>>ID;
-        while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo y no se repita
+    cout<<"Ingrese el ID "; ///  AUTOGENERAR EL ID
+    cin>>ID; ///    +++++WALTER RECICLA FUNCION+++++++
+
+        /**while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo y no se repita
             cout<<"Error ID";
                 if(Continuar()==false){
                     system ("cls");
@@ -27,7 +28,7 @@ bool Producto::Cargar_Producto(){
                 }
             cout<<">> Ingrese el ID: ";
             cin>>ID;
-        }
+        }*/
     cout<<"Ingrese el nombre: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -38,33 +39,29 @@ bool Producto::Cargar_Producto(){
         }
     cout<<"Ingrese el precio por unidad: $";
     cin>>Precio;
-        while(Precio<0){ ///validando Precio que no sea negativo
+        while(Precio<=0){ ///validando Precio que no sea negativo
             cout<<endl<<"Precio incorrecta, reingrese el Precio"<<endl<<endl;
             cout<<">> Ingrese el Precio por unidad: $";
             cin>>Precio;
         }
-    cout<<"Ingrese la cantidad: ";
-    cin>>Cantidad;
-        while(Cantidad<0){ ///validando Cantidad que no sea negativo
-            cout<<endl<<"Cantidad incorrecta, reingrese el Cantidad"<<endl<<endl;
-            cout<<">> Ingrese el Cantidad: ";
-            cin>>Cantidad;
-        }
+
+    Cantidad=0;
+
     cout<<"Ingrese la cantidad minima: ";
     cin>>Cantidad_Minima;
-        while(Cantidad_Minima<0){ ///validando minima que no sea negativo
+        while(Cantidad_Minima<=0){ ///validando minima que no sea negativo
             cout<<endl<<"cantidad minima incorrecta, reingrese la cantidad mínima"<<endl<<endl;
             cout<<">> Ingrese el cantidad mínima: ";
             cin>>Cantidad_Minima;
         }
     ///bool verificacion=Vencimiento.Cargar_Fecha_Vencimiento();
-    while(Vencimiento.Cargar_Fecha_Vencimiento()!=true){
+    /**while(Vencimiento.Cargar_Fecha_Vencimiento()!=true){
         cout<<endl<<"Fecha de vencimiento incorrecta"<<endl<<endl;
         if(Continuar()==false){
             system ("cls");
             return false;
         }
-    }
+    }*/
 return true;
 }
 

@@ -21,8 +21,8 @@ void MenuLotes(){
         cout<<"02 LISTAR LOTES ACTIVOS POR PRODUCTO SELECCIONADO      "<<endl;
         cout<<"03 LISTAR LOTES POR COMPLETO                           "<<endl;
         cout<<"04 CARGAR LOTE NUEVO                                   "<<endl;
-        cout<<"05 MODIFICAR UN REGISTRO DE UN LOTE ESPECIFICO         "<<endl; ///TRABAJAR CON ESTO GRABA UN NUEVO REGISTRO
-        cout<<"06 DESCONTAR PRODUCTOS DE FACTURA                      "<<endl;
+        cout<<"05 MODIFICAR UN REGISTRO DE UN LOTE ESPECIFICO         "<<endl;
+        ///cout<<"06 DESCONTAR PRODUCTOS DE FACTURA                      "<<endl;
         cout<<"00 SALIR                                               "<<endl;
         cout<<"====================================================== "<<endl;
         cout<<" Opcion:  ";    cin>>Opcion;
@@ -119,7 +119,7 @@ void Lotes_Prod::ModificarLote(int Lote){
                 cout<<"5= Nro Pedido......................................"<<endl;
                 ///cout<<"6= Nro Id Lote....................................."<<endl;
                 cout<<"0= Terminar........................................"<<endl;
-                cout<<"9= DESCONTAR LA FACTURA DE LOS LOTES..............."<<endl;
+                ///cout<<"9= DESCONTAR LA FACTURA DE LOS LOTES..............."<<endl;  /// SE UTILIZO PARA ARMAR LA LOGICA DEL DESCUENTO DE LOTES
                 cout<<"==================================================="<<endl;
                 cout<<"Ingrese: "; cin>>op;
                 switch(op){

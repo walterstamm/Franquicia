@@ -12,16 +12,17 @@ using namespace std;
 void Menu_Pedidos(){
     int opcion;
     while(true){
-        cout<<"\t USUARIOS";
-        cout<<endl<<"---------------------------";
-        cout<<endl<<"1) Carga de Provedores";
-        cout<<endl<<"2) Generar Pedidos";
-        cout<<endl<<"3) Confirmar/Dar de baja pedidos realizados";
-        cout<<endl<<"4) Modificar Provedores(dar baja a proveedor)";
-        cout<<endl<<"5) Lista de Proveedores";
-        cout<<endl<<"0) SALIR";
-        cout<<endl<<"---------------------------";
-        cout<<endl<<"\t opcion: ";
+        cout<<endl<<"=========================================================";
+        cout<<endl<<"                MENÚ PROVEEDORES                         ";
+        cout<<endl<<"=========================================================";
+        cout<<endl<<"1) Carga de Provedores...................................";
+        cout<<endl<<"2) Generar Pedidos.......................................";
+        cout<<endl<<"3) Confirmar/Dar de baja pedidos realizados..............";
+        cout<<endl<<"4) Modificar Provedores(dar baja a proveedor)............";
+        cout<<endl<<"5) Lista de Proveedores..................................";
+        cout<<endl<<"0) SALIR.................................................";
+        cout<<endl<<"=========================================================";
+        cout<<endl<<"\t Opción:  ";
         cin>>opcion;
         system ("cls");
         switch(opcion){
@@ -40,7 +41,6 @@ void Menu_Pedidos(){
         case 5:
             Mostrar_Proveedores();
             break;
-
         case 0:
             return;
         default:

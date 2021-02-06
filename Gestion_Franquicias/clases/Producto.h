@@ -8,11 +8,11 @@ class Producto{
         int ID;
         char Nombre[50];
         float Precio;
-        int Cantidad;
+        int Cantidad;  /// eliminar
         int Cantidad_Minima;
-        bool estado;
-        Fecha Actual;
-        Fecha Vencimiento;
+        bool estado; /// eliminar
+        Fecha Actual; ///emilinar
+        Fecha Vencimiento; ///eliminar
     public:
         Producto();
         ~Producto();
@@ -33,10 +33,10 @@ class Producto{
         ///set
         void setID(int id){ ID = id;}
         void setNombre(char *nomb){strcpy(Nombre, nomb);}
-        void setMod_Cantidad(int Modif) {Cantidad += Modif;}
+        void setMod_Cantidad(int Modif) {Cantidad =0;}
         void setCantidad(int _cantidad){Cantidad=_cantidad;}
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
-        void setEstado(int _estado){estado = _estado;}
+        void setEstado(int _estado){estado = 0;}
         void setPrecio(float _Precio){Precio =_Precio;}
         bool ValidarCantidadProducto(int);///valida que la cantidad vendida no sobrepase la cantidad existente
 
