@@ -21,6 +21,7 @@ class Producto{
         void Mostrar();
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
+        int NumeroId();///retorna el ultimo numero de pedido creado
         ///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
