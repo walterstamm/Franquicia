@@ -6,3 +6,5 @@
 *.layout
 *.o
 *.exe
+*.o
+Gestion_Franquicias/obj/Debug/Menu_Producto/Menu_Producto.o

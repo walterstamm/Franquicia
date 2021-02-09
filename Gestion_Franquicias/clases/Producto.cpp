@@ -17,18 +17,8 @@ Producto::~Producto(){
 }
 
 bool Producto::Cargar_Producto(){
-    cout<<"Ingrese el ID "; ///  AUTOGENERAR EL ID
-    cin>>ID; ///    +++++WALTER RECICLA FUNCION+++++++
-
-        /**while(ID<0 || ValidarIDProducto(ID)!=false){ ///validando id que no sea negativo y no se repita
-            cout<<"Error ID";
-                if(Continuar()==false){
-                    system ("cls");
-                    return false;
-                }
-            cout<<">> Ingrese el ID: ";
-            cin>>ID;
-        }*/
+    ID=NumeroId()+1;
+    cout<<endl<<"ID: "<<ID<<endl;
     cout<<"Ingrese el nombre: ";
     cin.ignore();
     cin.getline(Nombre, 50, '\n');
@@ -244,3 +234,19 @@ bool Cargar_Producto(int ID){
     }
     return true;
 }
+
+int Producto::NumeroId(){
+
+    int NumId;
+    FILE *p=fopen("archivos/producto.dat","rb");
+    if(p==NULL){
+        return 0;
+    }
+    fseek(p,sizeof(Producto)*-1,2);
+    fread(this,sizeof(Producto),1,p);
+    NumId=ID;
+    fclose(p);
+    return NumId;
+
+}
+

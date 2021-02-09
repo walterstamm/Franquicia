@@ -215,6 +215,9 @@ void ConfirmarPedido(){
     cout<<"========================================================";
     cout<<endl<<endl<<"Ingrese el Numero de pedido: ";
     cin>>numPedido;
+    if(ValidaNumeroPedido(numPedido)){
+
+
 
     cout<<endl<<"1. DAR DE BAJA";
     cout<<endl<<"2.CONFIRMAR RECEPCION DE PEDIDO"<<endl;
@@ -244,7 +247,42 @@ void ConfirmarPedido(){
             cout<<"Opcion Incorrecta";
             return;
     }
+    }
+    else{
+        cout<<endl<< "El numero de pedido no existe o ya ha sido recibido o rechazado";
+        system("pause");
+    }
     system("cls");
+}
+
+bool ValidaNumeroPedido(int numPedido){
+    Pedido aux;
+    int i=0,Anterior,bandera=0;
+    vector<Pedido> VecPedidos;
+    FILE *p=fopen("archivos/Pedidos.dat","rb");
+    if(p==NULL){
+        cout<<"Error";
+        system("pause");
+        return false;
+    }
+    while(fread(&aux,sizeof(Pedido),1,p)){
+
+        VecPedidos.push_back(aux);
+    }
+    fclose(p);
+    if(VecPedidos.size()==0){
+        return false;
+    }
+
+    for(i=0;i<VecPedidos.size();i++){
+        if(VecPedidos[i].getEstado()==0&&VecPedidos[i].getEstadoFinal()==0){
+            if(VecPedidos[i].getID()==numPedido){
+                bandera=1;
+            }
+        }
+    }
+    return bandera;
+
 }
 
 
