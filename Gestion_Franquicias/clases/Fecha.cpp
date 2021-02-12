@@ -78,3 +78,10 @@ bool Fecha::RetornarFechaVencimiento(){
     }
 return true;
 }
+
+bool Fecha::operator<(Fecha aux){
+    if(anio < aux.anio)return true;
+    if(anio == aux.anio && mes < aux.mes) return true;
+    if(anio == aux.anio && mes == aux.mes && dia < aux.dia)return true;
+    return false;
+}

@@ -40,7 +40,7 @@ bool Mostrar_Todos_Producto(){
     cout<<"==============================================================================="<<endl;
     cout << left;
     cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << setw(9) << "Estado" << endl;
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " /**<< setw(9) << "Cantidad"*/ << setw(12) << "Cant_Min" /**<< setw(16) << "Fecha Vto" << setw(9) << "Estado" */<< endl;
     cout<<"==============================================================================="<<endl;
     while(fread(&uno, sizeof(Producto),1,p)){
         uno.Mostrar_Producto();
@@ -68,7 +68,7 @@ void Mostrar_X_Producto(){
     cout<<"==============================================================================="<<endl;
     cout << left;
     cout << setw(4) << "ID";
-    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " << setw(9) << "Cantidad" << setw(12) << "Cant_Min" << setw(16) << "Fecha Vto" << endl;
+    cout << setw(18) << "Descripcion " << setw(9) << "Precio   " /**<< setw(9) << "Cantidad" */<< setw(12) << "Cant_Min" /**<< setw(16) << "Fecha Vto" */<< endl;
     cout<<"==============================================================================="<<endl;
     uno.Mostrar_Producto();
 }

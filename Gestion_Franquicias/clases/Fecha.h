@@ -14,6 +14,10 @@ class Fecha{
         int getDia(){ return dia;}
         int getMes(){ return mes;}
         int getAnio(){ return anio;}
+        int setDia(int Dia) {dia = Dia;}
+        int setMes(int Mes)  {mes= Mes;}
+        int setAnio(int Anio){anio= Anio;}
+        bool operator<(Fecha); ///bool operator==(Fecha);
 };
 
 #endif // FECHA_H_INCLUDED

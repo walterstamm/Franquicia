@@ -66,14 +66,15 @@ void Producto::Mostrar_Producto(){
             cout << right;
             cout << setw(6);
             cout << Precio;
-            cout << setw(9);
-            cout << Cantidad;
+            /**cout << setw(9);
+            cout << Cantidad;*/
             cout << setw(10);
             cout << Cantidad_Minima;
-            cout << setw(10);
+            /**cout << setw(10);
             cout << Fecha().getDia()<<"/"<<Fecha().getMes()<<"/"<<Fecha().getAnio();
             cout << setw(9);
-            cout << estado <<endl;
+            cout << estado*/
+            cout << endl;
 
 
     /**cout<<"ID "<<ID<<endl;

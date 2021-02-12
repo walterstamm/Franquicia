@@ -8,6 +8,7 @@ using namespace std;
 #include "Lotes_Productos.h"
 #include "Producto.h"
 #include "Ventas.h"
+#include "Fecha.h"
 
 void MenuLotes(){
     Lotes_Prod lot;
@@ -72,11 +73,6 @@ void MenuLotes(){
         break;
         }
     }
-}
-
-void Lotes(){
-
-    MenuLotes();
 }
 
 int Lotes_Prod::NuevoID(){
@@ -146,11 +142,24 @@ void Lotes_Prod::ModificarLote(int Lote){
                         {bool estado;
                         cout<<"Estado 1=ACTIVO, 0=NO ACTIVO";
                         cin>>estado;
-                        if(estado){
-                            setLEstado_true();
-                        }else{
-                            setLEstado_false();}
-                            Grabar_Lotes_Prod(posic);}
+
+                        Fecha a, b;///aca veo las fechas hoy y la de vencimiento
+                            b.setDia(getLFe_Vto().getDia());
+                            b.setMes(getLFe_Vto().getMes());
+                            b.setAnio(getLFe_Vto().getAnio());
+                            a.setFechaHoy();
+                            int verdadero;
+                            if(a<b){
+                                verdadero = 1;
+                            }else {
+                                verdadero = 0;
+                            }
+                        if(estado == 1 && verdadero == 1){
+                                setLEstado_true();
+                            }else{
+                                setLEstado_false();
+                            }
+                        Grabar_Lotes_Prod(posic);}
                     break;
                     case 5:
                         {int Pedido;

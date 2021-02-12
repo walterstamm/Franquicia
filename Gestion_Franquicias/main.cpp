@@ -20,7 +20,7 @@ int main(){
         cout<<endl<<"1) MENÚ PRODUCTO...........";
         cout<<endl<<"2) MENÚ PROVEDORES.........";
         cout<<endl<<"3) MENÚ FACTURACION........";
-        cout<<endl<<"4) MENÚ STOCK..............";
+        cout<<endl<<"4) MENÚ LOTES..............";
         ///cout<<endl<<"5) MENÚ MEDIOS PAGO........";
         cout<<endl<<"5) MENÚ ENCABEZADO.........";
         ///cout<<endl<<"6) MENÚ DESCUENTO..........";
