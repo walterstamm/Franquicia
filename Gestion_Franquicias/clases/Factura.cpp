@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include<cstring>
 #include <iomanip> ///PARA TRABAJAR CON SETW
+#include <clocale>
 using namespace std;
 #include "Factura.h"
 #include "Fecha.h"
@@ -12,6 +13,7 @@ using namespace std;
 #include "Producto.h"
 #include "Comprobantes.h"
 #include "Lotes_Productos.h"
+
 
 int Factura::BuscarPosicionFactura(int Nro){
     int pos=0;
@@ -560,6 +562,7 @@ void Mostrar_Facturas_Eliminadas(){
 }
 
 void Menu_Reportes(){
+    setlocale(LC_ALL, "spanish");
     int Opcion;
     while(Opcion){
         system("cls");
@@ -568,10 +571,9 @@ void Menu_Reportes(){
         cout<<"\n01-Facturas emitidas por fecha..................";
         cout<<"\n02-Ventas realizadas por fecha..................";
         cout<<"\n03-Ventas realizadas en el mes..................";
-        cout<<"\n04-Importes recaudado en el mes.................";
-        cout<<"\n05-Importes recaudados en el dia................"; ///RESUMEN DE NROS FACTURAS EMITIDAS CON SUS VENTAS
-        cout<<"\n06-Totales de cada Producto vencido.............";
-        cout<<"\n07-informe Ventas: Cant Prod y Recaud ==Vector..";
+        cout<<"\n04-Importes recaudado en el mes/año.............";
+        cout<<"\n05-Totales de cada Producto vencido.............";
+        cout<<"\n06-informe Ventas: Cant Prod y Recaud ==Vector..";
         cout<<"\n================================================";
         cout<<"\n00- Volver al MENU FACTURACION..................";
         cout<<"\n================================================";
@@ -599,24 +601,18 @@ void Menu_Reportes(){
 
             case 4:
             {
-                cout<<"PARA PRUEBAS.............."<<endl;
+                Facturas_Mes();
 
             }
             break;
 
             case 5:
             {
-
+                Lotes_Prod_Vencido(); /// LOTES DE PRODUCTOS QUE TIENEN CANTIDAD > 0 Y ESTADO == 0
             }
             break;
 
             case 6:
-            {
-
-            }
-            break;
-
-            case 7:
                 Detalle_Ventas();
             break;
 
@@ -659,7 +655,7 @@ void Facturas_Fecha(){
     cout<<"==============================================================================="<<endl;
     float Tot_Factura=0;
     while( fread(&Fecha, sizeof(Factura), 1 ,Fa )  ){
-        ///if(Fecha.getFecha().getDia() == Dia && Fecha.getFecha().getMes() == Mes && Fecha.getFecha().getAnio() == Anio){
+        if(Fecha.getFecha().getDia() == Dia && Fecha.getFecha().getMes() == Mes && Fecha.getFecha().getAnio() == Anio && Fecha.getEstado() == 1){
             cout << right;
             cout << setw(3);
             cout << Fecha.getNros_Factura();
@@ -680,11 +676,45 @@ void Facturas_Fecha(){
             cout << Fecha.getEstado();
             cout << endl;
             Tot_Factura +=Fecha.getTotal_Pagar();
-        ///}
+        }
     }
     cout<<"==============================================================================="<<endl;
     cout<<"                                           TOTAL RECAUDADO:  "<<Tot_Factura<<endl;
     cout<<"==============================================================================="<<endl;
+    system("PAUSE");
+    system("cls");
+    fclose(Fa);
+}
+
+void Facturas_Mes(){
+    Fecha f;
+    Factura Fecha;
+    int Mes, Anio;
+    system("cls");
+    title("MENU REPORTES = 01-Facturas emitidas po fecha", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+    cout<<endl;
+    cout<<"Ingrese la fecha MM:    ";   cin>>Mes;
+    cout<<"Ingrese la fecha AAAA:  ";   cin>>Anio;
+
+    FILE *Fa= fopen("archivos/Facturas.dat", "rb");
+    if(Fa == NULL){
+        cout<<"No se pudo abrir Facturas.dat"<<endl;
+        return;
+    }
+    float Tot_Factura=0;
+    while( fread(&Fecha, sizeof(Factura), 1 ,Fa )  ){
+        if(Fecha.getFecha().getMes() == Mes && Fecha.getFecha().getAnio() == Anio && Fecha.getEstado() == 1){
+            Tot_Factura +=Fecha.getTotal_Pagar();
+        }
+    }
+    cout<<"==============================================================================="<<endl;
+    cout<<" TOTAL RECAUDADO EN EL PERIODO:  "<<Mes<<" / "<<Anio<<"  $......"<<Tot_Factura<<endl;
+    cout<<"==============================================================================="<<endl;
+
+
+    f.setFechaHoy();
+    f.Mostrar_Fecha();
+    cout<<endl;
     system("PAUSE");
     system("cls");
     fclose(Fa);
@@ -913,4 +943,20 @@ void Detalle_Ventas(){  ///     SE HIZO CON VECTORES
     cout<<"==============================================================================="<<endl;
     system("pause");
 
+}
+
+void Lotes_Prod_Vencido(){
+    Lotes_Prod Ven;
+    FILE *V = fopen("archivos/Lotes.dat", "rb");
+    if(V == NULL){return;}
+
+    Encab_Lote();
+    while(fread(&Ven, sizeof(Lotes_Prod), 1, V)){
+        if(Ven.getLEstado()== 0 && Ven.getLCantidad()>0){
+            Ven.MuestroLote();
+        }
+    }
+    cout<<"==================================================="<<endl<<endl;
+    system("pause");
+    fclose(V);
 }

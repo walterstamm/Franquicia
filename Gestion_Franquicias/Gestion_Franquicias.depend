@@ -251,7 +251,7 @@
 
 1613094442 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\fecha.h
 
-1609621448 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.h
+1613182122 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 
@@ -276,7 +276,7 @@
 
 1603935166 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\detalle_pedidos.h
 
-1612109539 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
+1613180106 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -284,6 +284,7 @@
 	<stdio.h>
 	<cstring>
 	<iomanip>
+	<clocale>
 	"Factura.h"
 	"Fecha.h"
 	"Ventas.h"
@@ -298,7 +299,7 @@
 	"Fecha.h"
 	<cstring>
 
-1612056813 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\lotes_productos.h
+1613182122 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\lotes_productos.h
 	"Fecha.h"
 
 1613094442 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\fecha.cpp
@@ -306,7 +307,7 @@
 	<ctime>
 	"Fecha.h"
 
-1612997446 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\lotes_productos.cpp
+1613129761 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\lotes_productos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -315,6 +316,7 @@
 	"Lotes_Productos.h"
 	"Producto.h"
 	"Ventas.h"
+	"Fecha.h"
 
 1604635257 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
@@ -407,7 +409,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1612997214 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\main.cpp
+1613180180 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>

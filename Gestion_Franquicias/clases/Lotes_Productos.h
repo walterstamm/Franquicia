@@ -58,7 +58,7 @@ Lotes_Prod Leo_Lotes(int, int); ///CON LA POS y cant LEO EL REGISTRO
 void Encab_Lote();
 void Descuento_Lote(int);
 int Busco_Pos(int); ///busco en lotes con CodProd y mas viejo
-
+void Lotes_Prod_Vencido();
 
 
 

@@ -54,6 +54,7 @@ void Menu_Reportes();
 void Mostrar_Rotulo_Factura();
 void Mostrar_Comprobante();
 void Facturas_Fecha();
+void Facturas_Mes(); /// SUMA EL TOTAL DE CADA FACTURA EN ESTADO = 1 VENDIDAS EN EL MES QUE SEPIDE
 void Ventas_Fecha();
 void Ventas_Mes();
 void Descuento_Stock(int);
