@@ -2,12 +2,14 @@
 using namespace std;
 #include <cstdlib>
 #include <clocale>
+#include <cstdio>
 #include "Menu_Principal.h"
 #include "InterfazGrafica/ui.h"
 #include "Menu_Producto/Menu_Producto.h"
 #include "Medio_Pago/Medio_Pago.h"
 #include "menus/MenuDescuento.h"
 #include "Clases/Comprobantes.h"
+#include "clases/Lotes_Productos.h"
 
 void MENU_PRODUCTO(){
     short opcion;
@@ -184,3 +186,24 @@ void Menu_Descuento(){
     }while (opcion!=6);
 }
 
+void Inicio_Ver_Vto(){
+    Lotes_Prod Ven;
+    Fecha hoy, lote;
+    FILE *V = fopen("archivos/Lotes.dat", "rb");
+    if(V == NULL){return;}
+
+    Encab_Lote();
+    while(fread(&Ven, sizeof(Lotes_Prod), 1, V)){
+        if(Ven.getLEstado()== 1){
+            lote.setAnio(Ven.getLFe_Vto().getAnio());
+            lote.setMes(Ven.getLFe_Vto().getMes());
+            lote.setDia(Ven.getLFe_Vto().getDia());
+            if(lote < hoy){
+                Ven.MuestroLote();
+            }
+        }
+    }
+    cout<<"==================================================="<<endl<<endl;
+    system("pause");
+    fclose(V);
+}

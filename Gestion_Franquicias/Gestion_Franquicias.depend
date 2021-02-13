@@ -276,7 +276,7 @@
 
 1603935166 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\detalle_pedidos.h
 
-1613180106 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
+1613182869 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -409,7 +409,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1613180180 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\main.cpp
+1613224982 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -419,7 +419,7 @@
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
 
-1608419196 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\menu_principal.h
+1613224982 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\menu_principal.h
 
 1604625709 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>

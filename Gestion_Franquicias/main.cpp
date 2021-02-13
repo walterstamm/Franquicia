@@ -11,6 +11,8 @@ using namespace std;
 int main(){
     setlocale(LC_ALL, "spanish");
 
+    Inicio_Ver_Vto();
+
     short opcion;
     do{
         title("MENÚ PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);

@@ -8,5 +8,6 @@ void Menu_Descuento();
 void Menu_Encabezado();
 void Lotes();
 void MenuLotes();
+void Inicio_Ver_Vto();
 
 #endif // MENU_PRINCIPAL_H_INCLUDED
