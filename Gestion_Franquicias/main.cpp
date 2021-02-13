@@ -7,12 +7,15 @@ using namespace std;
 #include "InterfazGrafica/ui.h"
 #include "Menu_Principal.h"
 #include "Menu_Pedidos.h"
+#include "clases/Factura.h"
+#include "clases/Lotes_Productos.h"
+
 
 int main(){
     setlocale(LC_ALL, "spanish");
-
-    Inicio_Ver_Vto();
-
+    cout<<"==========================================================="<<endl;
+    cout<<"     INFORME DE LOTES QUE ESTAN EN ESTADO =1 VENCIDOS      "<<endl<<endl;
+    Inicio_Ver_Vto(); /// MUESTRO LOS LOTES QUE HOY ESTAN VENCIDO Y EL ESTADO = 1
     short opcion;
     do{
         title("MENÚ PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);

@@ -276,7 +276,7 @@
 
 1603935166 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\detalle_pedidos.h
 
-1613182869 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
+1613243740 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -307,7 +307,7 @@
 	<ctime>
 	"Fecha.h"
 
-1613129761 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\lotes_productos.cpp
+1613243928 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\clases\lotes_productos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -409,7 +409,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1613224982 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\main.cpp
+1613244581 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -418,6 +418,8 @@
 	"InterfazGrafica/ui.h"
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
+	"clases/Factura.h"
+	"clases/Lotes_Productos.h"
 
 1613224982 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\menu_principal.h
 
@@ -439,16 +441,22 @@
 	"clases/Producto.h"
 	"clases/Lotes_Productos.h"
 
-1609117406 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\menu_principal.cpp
+1613243740 source:c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
+	<cstdio>
+	<vector>
 	"Menu_Principal.h"
 	"InterfazGrafica/ui.h"
 	"Menu_Producto/Menu_Producto.h"
 	"Medio_Pago/Medio_Pago.h"
 	"menus/MenuDescuento.h"
 	"Clases/Comprobantes.h"
+	"clases/Lotes_Productos.h"
+	"clases/Factura.h"
+	"clases/Producto.h"
+	"clases/Ventas.h"
 
 1605231108 c:\users\hugo\google drive\actual\2020\2020 utn\2do cuatrimestre\laboratorio de computacion ii\proyecto franquicia\franquicia\gestion_franquicias\menu_producto\menu_producto.h
 

@@ -26,7 +26,7 @@ void MenuLotes(){
         ///cout<<"06 DESCONTAR PRODUCTOS DE FACTURA                      "<<endl;
         cout<<"00 SALIR                                               "<<endl;
         cout<<"====================================================== "<<endl;
-        cout<<" Opcion:  ";    cin>>Opcion;
+        cout<<" Opción:  ";    cin>>Opcion;
         switch(Opcion){
         case 1:
             {system("cls");
@@ -108,7 +108,7 @@ void Lotes_Prod::ModificarLote(int Lote){
                 cout<<"==================================================="<<endl;
                 cout<<"=======INDIQUE EL CAMPO QUE DESEA MODIFICAR:======="<<endl;
                 cout<<"==================================================="<<endl;
-                cout<<"1= Codigo del Producto............................."<<endl;
+                cout<<"1= Código del Producto............................."<<endl;
                 cout<<"2= Cantidad de Producto............................"<<endl;
                 cout<<"3= Fecha del Vencimiento..........................."<<endl;
                 cout<<"4= Estado del Producto............................."<<endl;
@@ -117,7 +117,7 @@ void Lotes_Prod::ModificarLote(int Lote){
                 cout<<"0= Terminar........................................"<<endl;
                 ///cout<<"9= DESCONTAR LA FACTURA DE LOS LOTES..............."<<endl;  /// SE UTILIZO PARA ARMAR LA LOGICA DEL DESCUENTO DE LOTES
                 cout<<"==================================================="<<endl;
-                cout<<"Ingrese: "; cin>>op;
+                cout<<"Ingrese opción: "; cin>>op;
                 switch(op){
                     case 1:
                         {int CodProd;
@@ -140,7 +140,7 @@ void Lotes_Prod::ModificarLote(int Lote){
                     break;
                     case 4:
                         {bool estado;
-                        cout<<"Estado 1=ACTIVO, 0=NO ACTIVO";
+                        cout<<"Estado 1=ACTIVO, 0=NO ACTIVO   ";
                         cin>>estado;
 
                         Fecha a, b;///aca veo las fechas hoy y la de vencimiento
