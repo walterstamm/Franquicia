@@ -21,14 +21,14 @@ void MENU_PRODUCTO(){
         title("MENÚ PRODUCTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<endl<<"--------------------------------------";
         cout<<endl<<"1) CARGAR PRODUCTO";
-        cout<<endl<<"2) MODIFICAR CANTIDAD DEL PRODUCTOS";
-        cout<<endl<<"3) MODIFICAR CANTIDAD MINIMA";
-        cout<<endl<<"4) LISTAR TODOS LOS PRODUCTOS";
-        cout<<endl<<"5) LISTAR PRODUCTO POR ID";
-        cout<<endl<<"6) ELIMINAR PRODUCTO";
-        cout<<endl<<"7) MODIFICAR PRECIO DEL PRODUCTO";
-        cout<<endl<<"8) VOLVER AL MENÚ PRINCIPAL";
-        cout<<endl<<"9) VENDER";
+        ///cout<<endl<<"2) MODIFICAR CANTIDAD DEL PRODUCTOS";
+        cout<<endl<<"2) MODIFICAR CANTIDAD MINIMA";
+        cout<<endl<<"3) LISTAR TODOS LOS PRODUCTOS";
+        cout<<endl<<"4) LISTAR PRODUCTO POR ID";
+        cout<<endl<<"5) ELIMINAR PRODUCTO";
+        cout<<endl<<"6) MODIFICAR PRECIO DEL PRODUCTO";
+        ///cout<<endl<<"7) VENDER";
+        cout<<endl<<"0) VOLVER AL MENÚ PRINCIPAL";
         cout<<endl<<"--------------------------------------";
         cout<<endl<<"\t OPCIÓN: ";
         cin>>opcion;
@@ -39,40 +39,40 @@ void MENU_PRODUCTO(){
             system("pause");
             system("cls");
         break;
-        case 2:
+        case 22:
             Modificar_Cantidad();
             system("pause");
             system("cls");
         break;
-        case 3:
+        case 2:
             Modificar_La_Cantidad_minima();
             system("pause");
             system("cls");
         break;
-        case 4:
+        case 3:
             Mostrar_Todos_Producto();
             system("pause");
             system("cls");
         break;
-        case 5:
+        case 4:
             Mostrar_X_Producto();
             system("pause");
             system("cls");
         break;
-        case 6:
+        case 5:
             Eliminar_Producto();
             system("pause");
             system("cls");
         break;
-        case 7:
+        case 6:
             Modificar_Precio();
             system("pause");
             system("cls");
         break;
-        case 8:
+        case 0:
             return;
         break;
-        case 9:
+        case 7:
             ventas();
             system("pause");
             system("cls");
