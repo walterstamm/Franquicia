@@ -382,7 +382,7 @@ bool Lotes_Prod::AltaPedido(int numPedido){
         }
         cout<<"Fecha Vto: ";
         if(LFe_Vto.Cargar_Fecha_Vencimiento()){///en caso de fecha valida  guarda el producto
-
+            setLEstado_true();
             Grabar_Lotes_Prod(-1);
             setLEstado_true();
 
