@@ -20,7 +20,7 @@ void Menu_Pedidos(){
         cout<<endl<<"3) CONFIRMAR/DAR DE BAJA PEDIDOS.........................";
         cout<<endl<<"4) MODIFICAR PROVEEDORES(DAR DE BAJA PROVEEDOR)..........";
         cout<<endl<<"5) LISTAR PROVEEDORES....................................";
-        cout<<endl<<"6) HISTORIAL DE PEIDOS REALIZADOS........................";
+        cout<<endl<<"6) HISTORIAL DE PEDIDOS REALIZADOS.......................";
         cout<<endl<<"0) VOLVER AL MENU PRINCIPAL..............................";
         cout<<endl<<"=========================================================";
         cout<<endl<<"\t Opción:  ";
