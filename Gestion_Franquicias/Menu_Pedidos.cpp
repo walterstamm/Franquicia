@@ -37,7 +37,6 @@ void Menu_Pedidos(){
         break;
         case 4:
             DarBajaProveedor();
-
             break;
         case 5:
             Mostrar_Proveedores();
@@ -128,7 +127,6 @@ void DarBajaProveedor(){
     }
     cout<<endl<<"No se puedo guardar los cambios";
     system("pause");
-    system("cls");
     return;
     }
 
@@ -229,7 +227,6 @@ void ConfirmarPedido(){
             if (BajaPedido(numPedido)){
                 cout<<endl<<"Baja exitosa";
                 system("pause");
-                system("cls");
                 return;
             }
             cout<<endl<<"No se puedo concretar la baja";
@@ -256,7 +253,6 @@ void ConfirmarPedido(){
         system("pause");
     }
     system("cls");
-
 }
 
 bool ValidaNumeroPedido(int numPedido){

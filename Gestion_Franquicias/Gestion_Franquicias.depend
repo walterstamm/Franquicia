@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1613309789 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.cpp
+1612120623 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -12,9 +12,9 @@
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\comprobantes.h
 	"Fecha.h"
 
-1613166342 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.h
+1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.h
 
-1613309789 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.h
+1610409902 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.h
 	"Fecha.h"
 	"ui.h"
 
@@ -39,7 +39,7 @@
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\detalle_pedidos.h
 
-1613309789 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.cpp
+1612120623 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\factura.cpp
 	<vector>
 	<iostream>
 	<cstdlib>
@@ -47,7 +47,6 @@
 	<stdio.h>
 	<cstring>
 	<iomanip>
-	<clocale>
 	"Factura.h"
 	"Fecha.h"
 	"Ventas.h"
@@ -62,15 +61,15 @@
 	"Fecha.h"
 	<cstring>
 
-1613309789 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\lotes_productos.h
+1612120623 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\lotes_productos.h
 	"Fecha.h"
 
-1613166342 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.cpp
+1610757672 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 
-1613309789 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\lotes_productos.cpp
+1612736824 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\lotes_productos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -79,7 +78,6 @@
 	"Lotes_Productos.h"
 	"Producto.h"
 	"Ventas.h"
-	"Fecha.h"
 
 1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.cpp
 	<iostream>
@@ -91,7 +89,7 @@
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.h
 
-1613318028 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.cpp
+1612736824 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.cpp
 	<iostream>
 	<cstring>
 	<vector>
@@ -101,7 +99,7 @@
 	"Fecha.h"
 	"Producto.h"
 
-1613317954 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.h
+1608077040 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.h
 	"Fecha.h"
 
 1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\proveedores.cpp
@@ -162,7 +160,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1613309789 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\main.cpp
+1612736824 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\main.cpp
 	<cstdlib>
 	<cstdio>
 	<cstring>
@@ -171,10 +169,8 @@
 	"InterfazGrafica/ui.h"
 	"Menu_Principal.h"
 	"Menu_Pedidos.h"
-	"clases/Factura.h"
-	"clases/Lotes_Productos.h"
 
-1613309789 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.h
+1610409901 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.h
 
 1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.cpp
 	<iostream>
@@ -184,7 +180,7 @@
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.h
 
-1613315905 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.cpp
+1612739991 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -194,28 +190,22 @@
 	"clases/Producto.h"
 	"clases/Lotes_Productos.h"
 
-1613309789 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.cpp
+1610409901 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_principal.cpp
 	<iostream>
 	<cstdlib>
 	<clocale>
-	<cstdio>
-	<vector>
 	"Menu_Principal.h"
 	"InterfazGrafica/ui.h"
 	"Menu_Producto/Menu_Producto.h"
 	"Medio_Pago/Medio_Pago.h"
 	"menus/MenuDescuento.h"
 	"Clases/Comprobantes.h"
-	"clases/Lotes_Productos.h"
-	"clases/Factura.h"
-	"clases/Producto.h"
-	"clases/Ventas.h"
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.h
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\menus\menudescuento.h
 
-1613166341 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.cpp
+1612120623 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_producto\menu_producto.cpp
 	<iostream>
 	<cstdio>
 	<iomanip>
@@ -236,7 +226,7 @@
 	<string.h>
 	"SINO.h"
 
-1613166342 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\producto.cpp
+1612742510 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\producto.cpp
 	<iostream>
 	<iomanip>
 	<cstdlib>

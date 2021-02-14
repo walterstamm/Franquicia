@@ -143,7 +143,7 @@ void Menu_Encabezado(){
         cout<<"\n06-Fecha de inicio actividad................"<<Enc.getFecha_inic().getDia()<<"/"<<Enc.getFecha_inic().getMes()<<"/"<<Enc.getFecha_inic().getAnio();
         cout<<"\n07-Mostrar Rotulo de empresa................";
         /// LA IDEA ES QUE SOLO SE CARGUE UNA SOLA VEZ
-        ///cout<<"\n08-Desbloqueo...............................";
+        cout<<"\n08-Desbloqueo...............................";
         cout<<"\n============================================";
         cout<<"\n00- Volver al MENU PRINCIPAL................";
         cout<<"\n============================================";

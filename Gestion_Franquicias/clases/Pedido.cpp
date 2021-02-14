@@ -168,15 +168,6 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
         return false;
     }
     while(fread(&aux,sizeof(Pedido),1,p)){
-        cout<<aux.getID()<<endl;
-        cout<<aux.getEstado()<<endl;
-        cout<<aux.getEstadoFinal()<<endl;
-        cout<<getFecha().getDia()<<"/"<<getFecha().getMes()<<"/"<<getFecha().getAnio();
-        cout<<endl<<endl;
-    }
-    fclose(p);
-
-    /*while(fread(&aux,sizeof(Pedido),1,p)){
 
         VecPedidos.push_back(aux);
     }
@@ -186,7 +177,6 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
     }
 
     for(i=0;i<VecPedidos.size();i++){
-
         if(VecPedidos[i].getEstado()==0){
             if(VecPedidos[i].getEstadoFinal()==0){
                 if(bandera==0||Anterior!=VecPedidos[i].ID){
@@ -207,5 +197,5 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
     if(bandera==0){
         cout<<"NO HAY PEDIDOS PENDIENTES";
     }
-    return true;*/
+    return true;
 }
