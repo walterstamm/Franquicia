@@ -256,6 +256,7 @@ void ConfirmarPedido(){
         system("pause");
     }
     system("cls");
+
 }
 
 bool ValidaNumeroPedido(int numPedido){

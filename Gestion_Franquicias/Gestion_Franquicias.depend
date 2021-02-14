@@ -91,7 +91,7 @@
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\medios_pago.h
 
-1612736824 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.cpp
+1613318028 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.cpp
 	<iostream>
 	<cstring>
 	<vector>
@@ -101,7 +101,7 @@
 	"Fecha.h"
 	"Producto.h"
 
-1608077040 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.h
+1613317954 c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\pedido.h
 	"Fecha.h"
 
 1607561332 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\clases\proveedores.cpp
@@ -184,7 +184,7 @@
 
 1607561332 c:\users\walter\documents\github\franquicia\gestion_franquicias\medio_pago\medio_pago.h
 
-1613313930 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.cpp
+1613315905 source:c:\users\walter\documents\github\franquicia\gestion_franquicias\menu_pedidos.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
