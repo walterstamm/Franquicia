@@ -11,7 +11,7 @@ using namespace std;
 #include "../clases/Descuento.h"
 
 
-void Cargar_Producto(){
+void Cargar_Producto(){ ///Carga el producto y guarda
     Producto uno;
     if(uno.Cargar_Producto()==false){
         cout<<"Error de carga de producto"<<endl;
@@ -73,7 +73,7 @@ void Mostrar_X_Producto(){
     uno.Mostrar_Producto();
 }
 
-void Modificar_Cantidad(){
+void Modificar_Cantidad(){ ///Modifica la cantidad de productos
     int ID;
     cout<<"ID del producto: ";
     cin>>ID;
@@ -99,7 +99,7 @@ void Modificar_Cantidad(){
     cout<<"Producto guardado"<<endl;
 }
 
-void Modificar_La_Cantidad_minima(){
+void Modificar_La_Cantidad_minima(){ ///Modifica la cantidad minima del producto
     int ID;
     cout<<"ID del producto: ";
     cin>>ID;
