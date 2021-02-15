@@ -39,7 +39,6 @@ bool Pedido::Cargar_Pedido(){
         cout<<endl<<"Cantidad: ";
         cin>>Cantidad;
     }
-    EstadoFinal=false;
     if(GuardaPedido()==0){
         return false;
     }
@@ -65,7 +64,6 @@ bool Pedido::Cargar_Pedido(){
                 cout<<endl<<"Cantidad: ";
                 cin>>Cantidad;
             }
-            EstadoFinal=0;
             if(GuardaPedido()==0){
                 return false;
             }
@@ -75,7 +73,6 @@ bool Pedido::Cargar_Pedido(){
     }
     system("pause");
     system("cls");
-
     return true;
 }
 
@@ -148,14 +145,14 @@ int Pedido::getID(){
 int Pedido::NumeroPedido(){
 
     int NumPedido;
-    FILE *t=fopen("archivos/Pedidos.dat","rb");
-    if(t==NULL){
+    FILE *p=fopen("archivos/Pedidos.dat","rb");
+    if(p==NULL){
         return 0;
     }
-    fseek(t,sizeof(Pedido)*-1,2);
-    fread(this,sizeof(Pedido),1,t);
+    fseek(p,sizeof(Pedido)*-1,2);
+    fread(this,sizeof(Pedido),1,p);
     NumPedido=ID;
-    fclose(t);
+    fclose(p);
     return NumPedido;
 
 }
@@ -170,7 +167,6 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
         system("pause");
         return false;
     }
-
     while(fread(&aux,sizeof(Pedido),1,p)){
 
         VecPedidos.push_back(aux);
@@ -181,7 +177,6 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
     }
 
     for(i=0;i<VecPedidos.size();i++){
-
         if(VecPedidos[i].getEstado()==0){
             if(VecPedidos[i].getEstadoFinal()==0){
                 if(bandera==0||Anterior!=VecPedidos[i].ID){

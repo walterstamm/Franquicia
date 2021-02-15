@@ -15,13 +15,12 @@ void Menu_Pedidos(){
         cout<<endl<<"=========================================================";
         cout<<endl<<"                MENÚ PROVEEDORES                         ";
         cout<<endl<<"=========================================================";
-        cout<<endl<<"1) CARGA DE PROVEEDORES..................................";
-        cout<<endl<<"2) GENERAR PEDIDOS.......................................";
-        cout<<endl<<"3) CONFIRMAR/DAR DE BAJA PEDIDOS.........................";
-        cout<<endl<<"4) MODIFICAR PROVEEDORES(DAR DE BAJA PROVEEDOR)..........";
-        cout<<endl<<"5) LISTAR PROVEEDORES....................................";
-        cout<<endl<<"6) HISTORIAL DE PEDIDOS REALIZADOS.......................";
-        cout<<endl<<"0) VOLVER AL MENU PRINCIPAL..............................";
+        cout<<endl<<"1) Carga de Provedores...................................";
+        cout<<endl<<"2) Generar Pedidos.......................................";
+        cout<<endl<<"3) Confirmar/Dar de baja pedidos realizados..............";
+        cout<<endl<<"4) Modificar Provedores(dar baja a proveedor)............";
+        cout<<endl<<"5) Lista de Proveedores..................................";
+        cout<<endl<<"0) SALIR.................................................";
         cout<<endl<<"=========================================================";
         cout<<endl<<"\t Opción:  ";
         cin>>opcion;
@@ -38,7 +37,6 @@ void Menu_Pedidos(){
         break;
         case 4:
             DarBajaProveedor();
-
             break;
         case 5:
             Mostrar_Proveedores();
@@ -47,12 +45,10 @@ void Menu_Pedidos(){
             return;
         default:
             cout<<endl<<"\t Opcion incorrecta"<<endl<<endl;
-
             system ("pause");
-
+            system ("cls");
         break;
         }
-        system ("cls");
     }
 }
 
@@ -131,7 +127,6 @@ void DarBajaProveedor(){
     }
     cout<<endl<<"No se puedo guardar los cambios";
     system("pause");
-    system("cls");
     return;
     }
 
@@ -232,7 +227,6 @@ void ConfirmarPedido(){
             if (BajaPedido(numPedido)){
                 cout<<endl<<"Baja exitosa";
                 system("pause");
-                system("cls");
                 return;
             }
             cout<<endl<<"No se puedo concretar la baja";
@@ -259,7 +253,6 @@ void ConfirmarPedido(){
         system("pause");
     }
     system("cls");
-
 }
 
 bool ValidaNumeroPedido(int numPedido){
