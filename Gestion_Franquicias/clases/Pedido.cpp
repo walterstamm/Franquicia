@@ -100,9 +100,22 @@ void Pedido::Mostrar_Pedido(){
         return ;
     }
     while(fread(this,sizeof(Pedido),1,p)){
-        cout<<endl<<ID;
-        cout<<endl<<Codigo_Producto;
-        cout<<endl<<Cantidad;
+        cout<<endl<<"ID:"<<ID;
+        cout<<endl<<"CODIGO DE PRODUCTO: "<<Codigo_Producto;
+        cout<<endl<<"CANTIDAD PEDIDA: "<<Cantidad;
+        Fecha_Generado.Mostrar_Fecha();
+        if(EstadoFinal==1&&Estado==0){
+            cout<<endl<<"PEDIDO RECHAZO O ANULADO";
+        }
+        else{
+            if(EstadoFinal==1&&Estado==1){
+                cout<<endl<<"PEDIDO RECIBIDO, POR MAS INFOMACION RECURRA A LA SECCION LOTES";
+            }
+            else{
+                cout<<endl<<"PEDIDO PENDIENTE DE RECEPCION";
+            }
+        }
+        cout<<endl<<"==============================================";
     }
     fclose(p);
 }

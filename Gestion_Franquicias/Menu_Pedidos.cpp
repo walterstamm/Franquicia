@@ -43,6 +43,9 @@ void Menu_Pedidos(){
         case 5:
             Mostrar_Proveedores();
             break;
+        case 6:
+            HistorialPedidos();
+            break;
         case 0:
             return;
         default:
@@ -71,6 +74,11 @@ void Carga_Provedores(){
     system("pause");
 }
 
+void HistorialPedidos(){
+    Pedido aux;
+    aux.Mostrar_Pedido();
+    system("pause");
+}
 
 void Mostrar_Proveedores(){
     proveedore reg;
