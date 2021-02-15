@@ -55,7 +55,7 @@ bool Producto::Cargar_Producto(){
 return true;
 }
 
-void Producto::Mostrar_Producto(){
+void Producto::Mostrar_Producto(){ ///Muestra la cabezera del producto
             Lotes_Prod Prod;
             int Cant = Prod.Cuento_CantProd_Lotes( ID);
             cout << left;
@@ -89,7 +89,7 @@ void Producto::Mostrar_Producto(){
     cout<<endl<<endl;*/
 }
 
-void Producto::Mostrar(){
+void Producto::Mostrar(){ ///Muestra la informacion de los archivos
     Producto pro;
     Lotes_Prod Lot;
     FILE * P= fopen("archivos/producto.dat","rb");
@@ -237,7 +237,6 @@ bool Cargar_Producto(int ID){
 }
 
 int Producto::NumeroId(){
-
     int NumId;
     FILE *p=fopen("archivos/producto.dat","rb");
     if(p==NULL){
@@ -248,6 +247,5 @@ int Producto::NumeroId(){
     NumId=ID;
     fclose(p);
     return NumId;
-
 }
 

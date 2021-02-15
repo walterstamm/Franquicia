@@ -17,21 +17,23 @@ class Producto{
         Producto();
         ~Producto();
         bool Cargar_Producto(); ///CUANDO SE CARGA POR PRIMERA VEZ
-        void Mostrar_Producto();
-        void Mostrar();
+        void Mostrar_Producto(); ///Muestra la cabezera del producto
+        void Mostrar(); ///Muestra la informacion de los archivos
         bool GuardarProducto();
         int Buscar_Producto_ID(int); ///busca el producto por ID y devuelve la posicion del producto
         int NumeroId();///retorna el ultimo numero de pedido creado
-        ///get
+	bool ModificarProducto(int); ///recibe la posicion en memoria del producto
+	bool ValidarCantidadProducto(int);///valida que la cantidad vendida no sobrepase la cantidad existente
+        
+	///get
         int getID(){return ID;}
         char *getNombre(){return Nombre;}
-
         float getPrecio(){return Precio;}
         int getCantidad(){return Cantidad;}
         bool getEstado(){return estado;}
         int getCantidad_Cod(int);
-        bool ModificarProducto(int); ///recibe la posicion en memoria del producto
-        ///set
+        
+	///set
         void setID(int id){ ID = id;}
         void setNombre(char *nomb){strcpy(Nombre, nomb);}
         void setMod_Cantidad(int Modif) {Cantidad =0;}
@@ -39,8 +41,6 @@ class Producto{
         void setCantidadMinima(int _cantidadMinima){Cantidad_Minima=_cantidadMinima;}
         void setEstado(int _estado){estado = 0;}
         void setPrecio(float _Precio){Precio =_Precio;}
-        bool ValidarCantidadProducto(int);///valida que la cantidad vendida no sobrepase la cantidad existente
-
 };
 
 bool ValidarIDProducto(int); ///validad que el ID no exista
