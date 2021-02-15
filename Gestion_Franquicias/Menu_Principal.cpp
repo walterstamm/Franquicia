@@ -84,7 +84,6 @@ void MENU_PRODUCTO(){
     }while (opcion!=7);
 }
 
-
 void Menu_Medio_Pago(){
     short opcion;
     do{
@@ -401,7 +400,7 @@ void Menu_Reportes(){
         system("cls");
         title("                MENU REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         cout<<"\n================================================";
-        cout<<"\n01-Facturas emitidas por fecha..................";
+        cout<<"\n01-Facturas emitidas en fecha...................";
         cout<<"\n02-Ventas realizadas por fecha..................";
         cout<<"\n03-Ventas realizadas en el mes..................";
         cout<<"\n04-Importes recaudado en el mes/año.............";
