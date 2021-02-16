@@ -7,7 +7,7 @@
 
 void Menu_Pedidos();
 void Carga_Provedores();///Carga nuevos Provedores
-void Mostrar_Proveedores();
+void Mostrar_Proveedores();/// mjuestra proveedores
 bool ValidarIDProveedores(int);//valida si el ID existe
 void DarBajaProveedor();/// da de baja logica al proveedor,(vamos es intuitivo el nombre de la funcion, no pidan mas)xD
 void BuscarID(proveedore *,int);
