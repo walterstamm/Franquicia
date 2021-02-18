@@ -225,7 +225,7 @@ void Descuento_Lote(int fact){
             }while(Cant > 0);
         }
     }
-                cout<<"FINALIZO EL WHILE"<<endl;
+                ///cout<<"FINALIZO EL WHILE"<<endl;
                 system("pause");
 }
 
@@ -281,8 +281,8 @@ Lotes_Prod Leo_Lotes(int pos, int Cant){
     }
     fseek(L, pos*sizeof(Lotes_Prod), SEEK_SET);
     fread(&Lot, sizeof(Lotes_Prod), 1, L);
-    cout<<"Muestro lote: "<<endl;
-    Lot.MuestroLote();
+ /**   cout<<"Muestro lote: "<<endl;
+    Lot.MuestroLote();*/
     return Lot;
     fclose(L);
 }
