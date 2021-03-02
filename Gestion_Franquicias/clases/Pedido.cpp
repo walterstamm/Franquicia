@@ -183,7 +183,7 @@ bool Pedido::Mostrar_Pedidos_sinConfirmacion(){
         system("pause");
         return false;
     }
-
+   /// EstadoFinal=0;
     while(fread(&aux,sizeof(Pedido),1,p)){
 
         VecPedidos.push_back(aux);
